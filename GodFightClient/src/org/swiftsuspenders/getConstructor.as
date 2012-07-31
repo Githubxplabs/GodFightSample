@@ -18,7 +18,7 @@ package org.swiftsuspenders {
 
 		Additionally, Vector instances always return Vector.<*> when queried for their constructor.
 		Ideally, that would also be resolved, but the SwiftSuspenders wouldn't be compatible with
-		Flash Player < 10, anymore.
+		Flash Player < 10, anymore. 
 		 */
 		if (value is Proxy || value is Number || value is XML || value is XMLList) {
 			var fqcn : String = getQualifiedClassName(value);
