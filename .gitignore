@@ -68,10 +68,10 @@ local.properties
 
 # Visual C++ cache files
 ipch/
-*.aps
-*.ncb
-*.opensdf
-*.sdf
+# *.aps
+# *.ncb
+# *.opensdf
+# *.sdf
 
 # Visual Studio profiler
 *.psess
@@ -99,11 +99,11 @@ publish
 # Others
 # [Bb]in
 # [Oo]bj
-sql
+# sql
 TestResults
-*.Cache
-ClientBin
-stylecop.*
+# *.Cache
+# ClientBin
+# stylecop.*
 ~$*
 *.dbmdl
 Generated_Code #added for RIA/Silverlight projects
