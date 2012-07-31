@@ -44,24 +44,24 @@ local.properties
 # Build results
 [Dd]ebug/
 [Rr]elease/
-*_i.c
-*_p.c
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.vspscc
-.builds
-*.dotCover
+# *_i.c
+# *_p.c
+# *.ilk
+# *.meta
+# *.obj
+# *.pch
+# *.pdb
+# *.pgc
+# *.pgd
+# *.rsp
+# *.sbr
+# *.tlb
+# *.tli
+# *.tlh
+# *.tmp
+# *.vspscc
+# .builds
+# *.dotCover
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
@@ -97,8 +97,8 @@ DocProject/Help/html
 publish
 
 # Others
-[Bb]in
-[Oo]bj
+# [Bb]in
+# [Oo]bj
 sql
 TestResults
 *.Cache
