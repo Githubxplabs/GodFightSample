@@ -29,7 +29,7 @@ package me.xplabs.utils
 			_connector = connector;
 		}
 		/**
-		 * 写入消息发哦是那个消息到客户端
+		 * 写入消息并发送到客户端
 		 * @param	clinetId 客户端id
 		 * @param	baseMessage 消息数据
 		 */
