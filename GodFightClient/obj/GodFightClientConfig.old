@@ -20,12 +20,12 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>E:\工作\项目\GodFight\GodFightClient\src</path-element>
+      <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\src</path-element>
       <path-element>E:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>E:\工作\项目\GodFight\GodFightClient\src\Main.as</path-element>
+    <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
