@@ -1,9 +1,7 @@
 package me.xplabs.utils
 {
-	import flash.utils.Dictionary;
-	import me.xplabs.servers.MessageType;
-	
 	/**
+	 * 工具类 
 	 * ...
 	 * @author xiaohan
 	 */

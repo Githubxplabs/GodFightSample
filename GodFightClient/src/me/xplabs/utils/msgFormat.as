@@ -1,6 +1,7 @@
 package me.xplabs.utils 
 {
 	/**
+	 * 格式化消息
 	 * ...
 	 * @author xiaohan
 	 */
