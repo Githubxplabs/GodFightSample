@@ -1,6 +1,7 @@
 package me.xplabs.common.controller 
 {
 	import flash.events.Event;
+	import me.xplabs.common.events.GameManagerEvent;
 	import me.xplabs.interfaces.common.IUpdate;
 	import org.robotlegs.mvcs.Command;
 	
@@ -20,6 +21,8 @@ package me.xplabs.common.controller
 		override public function execute():void 
 		{
 			contextView.addEventListener(Event.ENTER_FRAME, gameManager.update);
+			commandMap.mapEvent(GameManagerEvent.START_GAME_UPDATE, StartUpdateCommand, GameManagerEvent);
+			commandMap.mapEvent(GameManagerEvent.START_GAME_UPDATE, StopUpdateCommand, GameManagerEvent);
 		}
 	}
 

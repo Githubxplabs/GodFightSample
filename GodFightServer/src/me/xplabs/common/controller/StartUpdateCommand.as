@@ -1,6 +1,6 @@
 package me.xplabs.common.controller 
 {
-	import me.xplabs.interfaces.common.IGameManager;
+	import me.xplabs.interfaces.common.IGameManagerStateControl;
 	import org.robotlegs.mvcs.Command;
 	
 	/**
@@ -10,7 +10,7 @@ package me.xplabs.common.controller
 	public class StartUpdateCommand extends Command 
 	{
 		[Inject]
-		public var gameManager:IGameManager;
+		public var gameManager:IGameManagerStateControl;
 		public function StartUpdateCommand() 
 		{
 			super();

@@ -2,12 +2,13 @@ package me.xplabs.common.model
 {
 	import flash.events.Event;
 	import me.xplabs.interfaces.common.IGameManager;
+	import me.xplabs.interfaces.common.IGameManagerStateControl;
 	import me.xplabs.interfaces.common.IUpdate;
 	/**
 	 * ...
 	 * @author xiaohan
 	 */
-	public class GameManager implements IGameManager,IUpdate
+	public class GameManager implements IGameManager,IUpdate,IGameManagerStateControl
 	{
 		
 		public function GameManager() 
