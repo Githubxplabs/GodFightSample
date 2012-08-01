@@ -6,7 +6,6 @@ package me.xplabs.net.model {
 	import flash.net.ServerSocket;
 	import flash.net.Socket;
 	import flash.utils.ByteArray;
-	import flash.utils.Dictionary;
 
 	import me.xplabs.interfaces.servers.IMessageInfo;
 	import me.xplabs.interfaces.net.IServerSocket;
@@ -29,14 +28,14 @@ package me.xplabs.net.model {
 	 * @author xiaohan
 	 */
 	public class SocketServer extends EventDispatcher implements IServerSocket {
-		private var _sockets : Dictionary;
+		private var _sockets : Object;
 		private var _serverSocket : ServerSocket;
 		private var _bytesNode : ByteArray;
 		private var _recvBytes : ByteArray;
 
 		public function SocketServer() {
 			super();
-			_sockets = new Dictionary();
+			_sockets = { };
 			_serverSocket = new ServerSocket();
 
 			_recvBytes = new ByteArray();
@@ -60,6 +59,7 @@ package me.xplabs.net.model {
 		}
 
 		private function closeHandler(e : Event) : void {
+			trace("有socket连接关闭了");
 		}
 
 		private function connectHandler(e : ServerSocketConnectEvent) : void {
@@ -71,16 +71,13 @@ package me.xplabs.net.model {
 
 		private function receiveHandler(e : ProgressEvent) : void {
 			var socket : Socket = Socket(e.currentTarget);
-			// trace(e.currentTarget);
 			socket.readBytes(_recvBytes, _recvBytes.length);
 			if (_recvBytes.bytesAvailable < 2) return;
-			// _pos = _recvBytes.readShort();
 			var position : int = _recvBytes.readUnsignedInt();
 			_recvBytes.position -= 2;
 			while ( position <= _recvBytes.bytesAvailable) {
 				_bytesNode.clear();
 				_recvBytes.readBytes(_bytesNode, 0, position);
-				// dispatchEvent(new NetEvent(NetEvent.NET_RECEIVE,false ,_bytesNode));
 				dispatchEvent(new NetEvent(NetEvent.NET_RECEIVE, _bytesNode));
 				if (_recvBytes.bytesAvailable > 2) {
 					position = _recvBytes.readUnsignedInt();

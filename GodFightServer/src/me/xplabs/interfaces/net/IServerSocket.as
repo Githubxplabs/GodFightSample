@@ -29,5 +29,6 @@ package me.xplabs.interfaces.net {
 		 * 套接字所侦听的端口。
 		 */
 		function get localPort() : int;
+		//function setPlayer
 	}
 }
