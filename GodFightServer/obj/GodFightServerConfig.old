@@ -16,16 +16,16 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'2012/7/31 星期二'</value>
+      <value>'2012/8/1 星期三'</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>E:\工作\项目\GodFight\GodFightServer\src</path-element>
+      <path-element>J:\Github\godfight-repository\GodFightSample\GodFightServer\src</path-element>
       <path-element>E:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>E:\工作\项目\GodFight\GodFightServer\src\GodFightServer.mxml</path-element>
+    <path-element>J:\Github\godfight-repository\GodFightSample\GodFightServer\src\GodFightServer.mxml</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

@@ -103,8 +103,12 @@ package me.xplabs.net.model {
 			socket.writeBytes(message.bytes);
 			socket.flush();
 		}
+		
+		public function updateSockeConnected():void 
+		{
+			trace("一直在检测");
+		}
 
-		/* INTERFACE me.xplabs.interfaces.net.IServerSocket */
 		public function get localAddress() : String {
 			return _serverSocket.localAddress;
 		}

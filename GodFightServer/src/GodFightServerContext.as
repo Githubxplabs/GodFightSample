@@ -1,5 +1,9 @@
 package {
 	import flash.display.DisplayObjectContainer;
+	import me.xplabs.common.controller.GameManagerCommand;
+	import me.xplabs.common.model.GameManager;
+	import me.xplabs.interfaces.common.IGameManager;
+	import me.xplabs.interfaces.common.IUpdate;
 
 	import me.xplabs.interfaces.net.IMessageRecognizer;
 	import me.xplabs.interfaces.net.IServerSocket;
@@ -22,18 +26,35 @@ package {
 		}
 
 		override public function startup() : void {
+			
+			initGameManager();
+			initSocketServer();
+			initCommand();
+			super.startup();
+			trace("程序启动啦");
+		}
+		private function initGameManager():void
+		{
+			var gameManager:GameManager = new GameManager();
+			injector.mapValue(IGameManager, gameManager);
+			injector.mapValue(IUpdate, gameManager);
+			gameManager = null;
+		}
+		
+		private function initSocketServer():void
+		{
 			var socketServer : SocketServer = new SocketServer();
 			MessageHandle.socketServer = socketServer;
 			injector.mapValue(IServerSocket, socketServer);
 			socketServer = null;
-
+			
 			injector.mapSingletonOf(IMessageRecognizer, MessageRecognizer);
-
+		}
+		private function initCommand():void
+		{
+			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, GameManagerCommand, ContextEvent);
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, BindServerCommand, ContextEvent);
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, SocketServerCommand, ContextEvent);
-
-			super.startup();
-			trace("程序启动啦");
 		}
 	}
 }

@@ -2,6 +2,7 @@ package me.xplabs.net.model {
 	import flash.events.IEventDispatcher;
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
+	import me.xplabs.interfaces.common.IGameManager;
 
 	import me.xplabs.interfaces.net.IMessageRecognizer;
 	import me.xplabs.interfaces.net.IMessageRecognizerServers;
@@ -23,6 +24,8 @@ package me.xplabs.net.model {
 	public class MessageRecognizer extends Actor implements IMessageRecognizer,IMessageRecognizerServers {
 		[Inject]
 		public var socketServer : IServerSocket;
+		[Inject]
+		public var gameManager:IGameManager;
 		private var _baseMessage : IBaseMessage;
 		private var _msgs : Dictionary;
 
@@ -33,6 +36,7 @@ package me.xplabs.net.model {
 		public function listener() : void {
 			initMsgInstance();
 			eventMap.mapListener(IEventDispatcher(socketServer), NetEvent.NET_RECEIVE, receiveHandler);
+			gameManager.addUpdate(socketServer.updateSockeConnected);
 		}
 
 		/* INTERFACE me.xplabs.interfaces.net.IMessageRecognizerServers */
