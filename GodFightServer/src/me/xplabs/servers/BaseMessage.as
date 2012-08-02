@@ -13,12 +13,11 @@ package me.xplabs.servers {
 	 */
 	public class BaseMessage implements IBaseMessage {
 		private var _bytes : ByteArray;
-
+		private var _clientId:String;
 		public function BaseMessage() {
 			// _bytes = new ByteArray();
 		}
 
-		/* INTERFACE me.xplabs.interfaces.net.ISendMessage */
 		public function get type() : int {
 			return 0;
 		}
@@ -31,14 +30,23 @@ package me.xplabs.servers {
 			_bytes = value;
 		}
 
-		/* INTERFACE me.xplabs.interfaces.net.IBaseMessage */
 		public function read() : void {
 		}
 
 		public function write() : void {
 		}
+		
+		
+		public function get clientId():String 
+		{
+			return _clientId;
+		}
+		
+		public function set clientId(value:String):void 
+		{
+			_clientId = value;
+		}
 
-		/* INTERFACE me.xplabs.interfaces.net.IReadMessage */
 		protected function readByte() : int {
 			return _bytes.readByte();
 		}
@@ -67,7 +75,6 @@ package me.xplabs.servers {
 			return _bytes.readByte() == 1;
 		}
 
-		/* INTERFACE me.xplabs.interfaces.net.IWriteMessage */
 		protected function writeByte(value : int) : void {
 			_bytes.writeByte(value);
 		}

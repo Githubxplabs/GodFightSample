@@ -16,5 +16,13 @@ package me.xplabs.interfaces.servers {
 		 * 写入消息
 		 */
 		function write() : void;
+		/**
+		 * 获取客户端的id
+		 */
+		function get clientId():String;
+		/**
+		 * 设置客户端的id
+		 */
+		function set clientId(id:String):void;
 	}
 }

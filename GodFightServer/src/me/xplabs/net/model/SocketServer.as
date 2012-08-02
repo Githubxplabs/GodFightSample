@@ -32,9 +32,12 @@ package me.xplabs.net.model {
 		private var _serverSocket : ServerSocket;
 		private var _bytesNode : ByteArray;
 		private var _recvBytes : ByteArray;
-
+		
+		private var _clientCount:int;
 		public function SocketServer() {
 			super();
+			
+			_clientCount = 0;
 			_sockets = { };
 			_serverSocket = new ServerSocket();
 
@@ -66,11 +69,13 @@ package me.xplabs.net.model {
 			var socket : Socket = e.socket;
 			socket.addEventListener(ProgressEvent.SOCKET_DATA, receiveHandler);
 			dispatchEvent(e);
-			_sockets["0"] = socket;
+			_sockets["client" + _clientCount++] = socket;
 		}
 
 		private function receiveHandler(e : ProgressEvent) : void {
+			
 			var socket : Socket = Socket(e.currentTarget);
+			var cliendId:String = getClientIdBySocket(socket);
 			socket.readBytes(_recvBytes, _recvBytes.length);
 			if (_recvBytes.bytesAvailable < 2) return;
 			var position : int = _recvBytes.readUnsignedInt();
@@ -78,7 +83,7 @@ package me.xplabs.net.model {
 			while ( position <= _recvBytes.bytesAvailable) {
 				_bytesNode.clear();
 				_recvBytes.readBytes(_bytesNode, 0, position);
-				dispatchEvent(new NetEvent(NetEvent.NET_RECEIVE, _bytesNode));
+				dispatchEvent(new NetEvent(NetEvent.NET_RECEIVE, _bytesNode, cliendId));
 				if (_recvBytes.bytesAvailable > 2) {
 					position = _recvBytes.readUnsignedInt();
 					_recvBytes.position -= 2;
@@ -95,7 +100,7 @@ package me.xplabs.net.model {
 		 * @param	message 消息
 		 */
 		public function send(clinetId : String, message : IMessageInfo) : void {
-			var socket : Socket = getClientSocket(clinetId);
+			var socket : Socket = getSocketByClientId(clinetId);
 			if (!socket) return;
 			message.bytes.position = 0;
 			socket.writeUnsignedInt(message.bytes.length + 4);
@@ -131,9 +136,22 @@ package me.xplabs.net.model {
 		 * @param	clientId 客户端Id
 		 * @return
 		 */
-		private function getClientSocket(clientId : String) : Socket {
+		private function getSocketByClientId(clientId : String) : Socket {
 			if ("" == clientId) return _sockets["0"] as Socket;
 			return _sockets[clientId] as Socket;
+		}
+		/**
+		 * 根据Socket获取存储的客户端Id
+		 * @param	socket
+		 * @return
+		 */
+		private function getClientIdBySocket(socket:Socket):String
+		{
+			for (var name:String in _sockets) 
+			{
+				if (_sockets[name] == socket) return name;
+			}
+			return "";
 		}
 	}
 }

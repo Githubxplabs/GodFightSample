@@ -27,6 +27,7 @@ package me.xplabs.net.model {
 		[Inject]
 		public var gameManager:IGameManager;
 		private var _baseMessage : IBaseMessage;
+		
 		private var _msgs : Dictionary;
 
 		public function MessageRecognizer() {
@@ -53,6 +54,7 @@ package me.xplabs.net.model {
 			e.byteArray.position = 2;
 			var type : int = e.byteArray.readShort();
 			_baseMessage = _msgs[type];
+			_baseMessage.clientId = e.clientId;
 			var byteArray : ByteArray = new ByteArray();
 			e.byteArray.readBytes(byteArray);
 			_baseMessage.bytes = byteArray;
