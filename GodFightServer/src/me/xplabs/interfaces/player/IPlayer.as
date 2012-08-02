@@ -1,8 +1,12 @@
-package me.xplabs.interfaces.player {
+package me.xplabs.interfaces.player
+{
+	
 	/**
 	 * ...
 	 * @author xiaohan
 	 */
-	public interface IPlayer {
+	public interface IPlayer
+	{
+		//function get player():
 	}
 }

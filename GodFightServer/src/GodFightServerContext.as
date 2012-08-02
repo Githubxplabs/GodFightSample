@@ -3,6 +3,7 @@ package {
 	import me.xplabs.common.controller.GameManagerCommand;
 	import me.xplabs.common.model.GameManager;
 	import me.xplabs.interfaces.common.IGameManager;
+	import me.xplabs.interfaces.common.IGameManagerStateControl;
 	import me.xplabs.interfaces.common.IUpdate;
 
 	import me.xplabs.interfaces.net.IMessageRecognizer;
@@ -38,6 +39,7 @@ package {
 			var gameManager:GameManager = new GameManager();
 			injector.mapValue(IGameManager, gameManager);
 			injector.mapValue(IUpdate, gameManager);
+			injector.mapValue(IGameManagerStateControl, gameManager);
 			gameManager = null;
 		}
 		

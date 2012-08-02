@@ -22,7 +22,9 @@ package me.xplabs.common.controller
 		{
 			contextView.addEventListener(Event.ENTER_FRAME, gameManager.update);
 			commandMap.mapEvent(GameManagerEvent.START_GAME_UPDATE, StartUpdateCommand, GameManagerEvent);
-			commandMap.mapEvent(GameManagerEvent.START_GAME_UPDATE, StopUpdateCommand, GameManagerEvent);
+			commandMap.mapEvent(GameManagerEvent.STOP_GAME_UPDATE, StopUpdateCommand, GameManagerEvent);
+			
+			dispatch(new GameManagerEvent(GameManagerEvent.START_GAME_UPDATE));
 		}
 	}
 
