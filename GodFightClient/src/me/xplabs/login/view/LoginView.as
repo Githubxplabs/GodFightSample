@@ -2,9 +2,15 @@ package me.xplabs.login.view
 {
 	import me.xplabs.common.ui.UIButton;
 	import me.xplabs.common.ui.UITextInput;
+	import me.xplabs.login.events.LoginEvent;
 	import starling.core.Starling;
+	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Event;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import starling.textures.Texture;
 	
 	/**
@@ -20,10 +26,9 @@ package me.xplabs.login.view
 		private var _enterGameBtn:UIButton;
 		public function LoginView() 
 		{
-			init();
 		}
 		
-		private function init():void
+		public function init():void
 		{
 			image = new Image(Texture.fromBitmapData(new UILoginGround()));
 			addChild(image);
@@ -49,9 +54,19 @@ package me.xplabs.login.view
 			_enterGameBtn.x = 798;
 			_enterGameBtn.y = 670;
 			addChild(_enterGameBtn);
+			//_enterGameBtn.addEventListener(TouchEvent.TOUCH, touchEventHandler);
+			_enterGameBtn.addEventListener(Event.TRIGGERED, touchEventHandler);
 			
 		}
 		
+		private function touchEventHandler(e:Event):void 
+		{
+			dispatchEvent(new LoginEvent(LoginEvent.CLICK_ENTER_GAME));
+		}
+		override public function dispose():void 
+		{
+			super.dispose();
+		}
 		
 	}
 

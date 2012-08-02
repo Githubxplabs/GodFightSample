@@ -1,5 +1,6 @@
 package me.xplabs.login.view 
 {
+	import me.xplabs.login.events.LoginEvent;
 	import org.robotlegs.mvcs.Mediator;
 	
 	/**
@@ -17,9 +18,17 @@ package me.xplabs.login.view
 		}
 		override public function onRegister():void 
 		{
-			super.onRegister();
+			loginView.init();
+			loginView.addEventListener(LoginEvent.CLICK_ENTER_GAME, clickEnterGameHandler);
 		}
 		
+		private function clickEnterGameHandler(e:LoginEvent):void 
+		{
+			dispatch(e);
+		}
+		override public function onRemove():void 
+		{
+			loginView.dispose();
+		}
 	}
-
 }
