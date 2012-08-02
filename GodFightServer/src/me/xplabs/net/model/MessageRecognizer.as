@@ -1,11 +1,11 @@
-package me.xplabs.net.model {
+package me.xplabs.net.model
+{
 	import flash.events.IEventDispatcher;
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
 	import me.xplabs.interfaces.common.IGameManager;
-
+	
 	import me.xplabs.interfaces.net.IMessageRecognizer;
-	import me.xplabs.interfaces.net.IMessageRecognizerServers;
 	import me.xplabs.interfaces.net.IServerSocket;
 	import me.xplabs.interfaces.servers.IBaseMessage;
 	import me.xplabs.net.events.NetEvent;
@@ -14,54 +14,52 @@ package me.xplabs.net.model {
 	import me.xplabs.servers.MessageType;
 	import me.xplabs.utils.msgFormat;
 	import me.xplabs.utils.printMsg;
-
+	
 	import org.robotlegs.mvcs.Actor;
-
+	
 	/**
 	 * ...
 	 * @author xiaohan
 	 */
-	public class MessageRecognizer extends Actor implements IMessageRecognizer,IMessageRecognizerServers {
+	public class MessageRecognizer extends Actor implements IMessageRecognizer
+	{
 		[Inject]
-		public var socketServer : IServerSocket;
+		public var socketServer:IServerSocket;
 		[Inject]
 		public var gameManager:IGameManager;
-		private var _baseMessage : IBaseMessage;
 		
-		private var _msgs : Dictionary;
-
-		public function MessageRecognizer() {
+		private var _msgs:Dictionary;
+		
+		public function MessageRecognizer()
+		{
 		}
-
+		
 		/* INTERFACE me.xplabs.interfaces.net.IMessageRecognizer */
-		public function listener() : void {
+		public function listener():void
+		{
 			initMsgInstance();
 			eventMap.mapListener(IEventDispatcher(socketServer), NetEvent.NET_RECEIVE, receiveHandler);
 			gameManager.addUpdate(socketServer.updateSockeConnected);
 		}
-
-		/* INTERFACE me.xplabs.interfaces.net.IMessageRecognizerServers */
-		public function get baseMessage() : IBaseMessage {
-			return _baseMessage;
-		}
-
-		private function initMsgInstance() : void {
+		private function initMsgInstance():void
+		{
 			_msgs = new Dictionary();
 			_msgs[MessageType.CS_LOGIN] = new CSLogin();
 		}
-
-		private function receiveHandler(e : NetEvent) : void {
+		
+		private function receiveHandler(e:NetEvent):void
+		{
 			e.byteArray.position = 2;
-			var type : int = e.byteArray.readShort();
-			_baseMessage = _msgs[type];
-			_baseMessage.clientId = e.clientId;
-			var byteArray : ByteArray = new ByteArray();
+			var type:int = e.byteArray.readShort();
+			var baseMessage:IBaseMessage = _msgs[type];
+			baseMessage.clientId = e.clientId;
+			var byteArray:ByteArray = new ByteArray();
 			e.byteArray.readBytes(byteArray);
-			_baseMessage.bytes = byteArray;
-			_baseMessage.read();
+			baseMessage.bytes = byteArray;
+			baseMessage.read();
 			// _baseMessage.execute(eventDispatcher);
-			printMsg(_baseMessage.type);
-			dispatch(new NetNotificationEvent(msgFormat(_baseMessage.type)));
+			printMsg(baseMessage.type);
+			dispatch(new NetNotificationEvent(msgFormat(baseMessage.type), baseMessage));
 			byteArray.clear();
 			byteArray = null;
 			e.byteArray.clear();

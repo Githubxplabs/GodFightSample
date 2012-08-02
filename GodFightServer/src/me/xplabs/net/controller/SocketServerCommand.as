@@ -1,6 +1,5 @@
 package me.xplabs.net.controller {
 	import me.xplabs.interfaces.net.IMessageRecognizer;
-	import me.xplabs.interfaces.net.IMessageRecognizerServers;
 	import me.xplabs.interfaces.player.IPlayerManager;
 	import me.xplabs.login.controller.CSLoginCommand;
 	import me.xplabs.net.events.NetNotificationEvent;
@@ -24,7 +23,6 @@ package me.xplabs.net.controller {
 
 		override public function execute() : void {
 
-			injector.mapValue(IMessageRecognizerServers, messageRecognize);
 			injector.mapSingletonOf(IPlayerManager, PlayerManager);
 			
 			commandMap.mapEvent(msgFormat(MessageType.CS_LOGIN), CSLoginCommand, NetNotificationEvent);
