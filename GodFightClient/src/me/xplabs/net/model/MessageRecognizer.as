@@ -60,14 +60,6 @@ package me.xplabs.net.model
 		private function connectedHandler(e:NetEvent):void 
 		{
 			trace("网络连接成功了");
-			
-						
-			var cs:CSLogin = new CSLogin();
-			cs.userName = "韩贤明";
-			cs.passWord = "123456789";
-			cs.host = "127.0.0.1";
-			cs.port = 80;
-			sendMsg(cs);
 		}
 
 		/**

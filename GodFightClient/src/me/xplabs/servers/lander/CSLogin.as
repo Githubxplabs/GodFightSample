@@ -16,9 +16,9 @@ package me.xplabs.servers.lander
 		/** 登陆密码*/
 		public var passWord:String;
 		/** 连接到的主机的名称或 IP 地址*/
-		public var host:String;
+		//public var host:String;
 		/** 连接到的端口号*/
-		public var port:int;
+		//public var port:int;
 		
 		public function CSLogin() 
 		{
@@ -31,15 +31,15 @@ package me.xplabs.servers.lander
 		{
 			userName = readString();
 			passWord = readString();
-			host = readString();
-			port = readShort();
+			//host = readString();
+			//port = readShort();
 		}
 		override public function write():void 
 		{
 			writeString(userName);
 			writeString(passWord);
-			writeString(host);
-			writeShort(port);
+			//writeString(host);
+			//writeShort(port);
 		}
 	}
 }

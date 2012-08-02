@@ -3,6 +3,7 @@ package me.xplabs.login.view
 	import me.xplabs.common.ui.UIButton;
 	import me.xplabs.common.ui.UITextInput;
 	import me.xplabs.login.events.LoginEvent;
+	import me.xplabs.login.model.vo.AccountVO;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
@@ -61,7 +62,7 @@ package me.xplabs.login.view
 		
 		private function touchEventHandler(e:Event):void 
 		{
-			dispatchEvent(new LoginEvent(LoginEvent.CLICK_ENTER_GAME));
+			dispatchEvent(new LoginEvent(LoginEvent.CLICK_ENTER_GAME, false, new AccountVO(_userNameInput.text, _passWordInput.text)));
 		}
 		override public function dispose():void 
 		{

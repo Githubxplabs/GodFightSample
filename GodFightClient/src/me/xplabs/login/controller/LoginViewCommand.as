@@ -1,5 +1,6 @@
 package me.xplabs.login.controller 
 {
+	import me.xplabs.login.events.LoginEvent;
 	import me.xplabs.login.view.LoginView;
 	import me.xplabs.login.view.LoginViewMediator;
 	import org.robotlegs.mvcs.Command;
@@ -20,6 +21,8 @@ package me.xplabs.login.controller
 		
 		override public function execute():void 
 		{
+			
+			commandMap.mapEvent(LoginEvent.CLICK_ENTER_GAME, LoginGameCommand, LoginEvent);
 			mediatorMap.mapView(LoginView, LoginViewMediator);
 			contextView.addChild(new LoginView());
 		}
