@@ -69,7 +69,7 @@ package me.xplabs.net.model
 						
 			var cs:CSLogin = new CSLogin();
 			cs.userName = "韩贤明";
-			cs.passWord = "密码";
+			cs.passWord = "123456789";
 			cs.host = "127.0.0.1";
 			cs.port = 80;
 			sendMsg(cs);
