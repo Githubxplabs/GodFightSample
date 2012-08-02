@@ -1,5 +1,6 @@
 package me.xplabs.net.events 
 {
+	import me.xplabs.interfaces.servers.IBaseMessage;
 	import starling.events.Event;
 	
 	/**
@@ -9,9 +10,10 @@ package me.xplabs.net.events
 	 */
 	public class NetNotificationEvent extends Event 
 	{
-		//public static const NOTIFICATION:String = "notification";
-		public function NetNotificationEvent(type:String, bubbles:Boolean = false, data:Object = null)
+		public var baseMessage:IBaseMessage;
+		public function NetNotificationEvent(type:String, baseMessage:IBaseMessage, bubbles:Boolean = false, data:Object = null)
 		{
+			this.baseMessage = baseMessage;
 			super(type, bubbles, data);
 			
 		}

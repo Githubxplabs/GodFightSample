@@ -2,7 +2,6 @@ package me.xplabs.net.controller
 {
 	import me.xplabs.interfaces.net.IConnector;
 	import me.xplabs.interfaces.net.IMessageRecognizer;
-	import me.xplabs.interfaces.net.IMessageRecognizerServers;
 	import me.xplabs.login.controller.SCLoginResultCommand;
 	import me.xplabs.net.events.NetNotificationEvent;
 	import me.xplabs.servers.lander.SCLoginResult;
@@ -27,12 +26,7 @@ package me.xplabs.net.controller
 		override public function execute():void 
 		{
 			
-			injector.mapValue(IMessageRecognizerServers, messageRecognizer);
-			
-			
 			commandMap.mapEvent(msgFormat(MessageType.SC_LOGIN_RESULT), SCLoginResultCommand, NetNotificationEvent);
-			
-			
 			
 			messageRecognizer.listener();
 		}

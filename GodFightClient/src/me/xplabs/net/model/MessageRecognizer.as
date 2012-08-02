@@ -4,7 +4,6 @@ package me.xplabs.net.model
 	import flash.utils.Dictionary;
 	import me.xplabs.interfaces.net.IConnector;
 	import me.xplabs.interfaces.net.IMessageRecognizer;
-	import me.xplabs.interfaces.net.IMessageRecognizerServers;
 	import me.xplabs.interfaces.servers.IBaseMessage;
 	import me.xplabs.net.events.NetEvent;
 	import me.xplabs.net.events.NetNotificationEvent;
@@ -22,17 +21,13 @@ package me.xplabs.net.model
 	 * ...
 	 * @author xiaohan
 	 */
-	public class MessageRecognizer extends Actor implements IMessageRecognizer,IMessageRecognizerServers
+	public class MessageRecognizer extends Actor implements IMessageRecognizer
 	{
 		/**
 		 * 网络连接器
 		 */
 		[Inject]
 		public var connector:IConnector;
-		/**
-		 * 收到的当前消息
-		 */
-		private var _baseMessage:IBaseMessage;
 		/**
 		 * 消息库
 		 */
@@ -55,7 +50,7 @@ package me.xplabs.net.model
 			
 			eventMap.mapListener(IEventDispatcher(connector), NetEvent.NET_CONNECTED, connectedHandler);
 			eventMap.mapListener(IEventDispatcher(connector), NetEvent.NET_RECEIVE, receiveHandler);
-			//connector.connect("127.0.0.1", 80);
+			connector.connect("127.0.0.1", 80);
 		
 		}
 		/**
@@ -74,14 +69,7 @@ package me.xplabs.net.model
 			cs.port = 80;
 			sendMsg(cs);
 		}
-		/* INTERFACE me.xplabs.interfaces.net.IMessageRecognizerServers */
-		/**
-		 * 获取当前收到的消息
-		 */
-		public function get baseMessage():IBaseMessage 
-		{
-			return _baseMessage;
-		}
+
 		/**
 		 * 初始化消息库
 		 */
@@ -99,13 +87,13 @@ package me.xplabs.net.model
 		{
 			e.byteArray.position = 2;
 			var type:int = e.byteArray.readShort();
-			_baseMessage = _msgs[type];
+			var baseMessage:IBaseMessage = _msgs[type];
 			var byteArray:ByteArray = new ByteArray();
 			e.byteArray.readBytes(byteArray);
-			_baseMessage.bytes= byteArray;
-			_baseMessage.read();
-			printMsg(_baseMessage.type);
-			dispatch(new NetNotificationEvent(msgFormat(_baseMessage.type)));
+			baseMessage.bytes= byteArray;
+			baseMessage.read();
+			printMsg(baseMessage.type);
+			dispatch(new NetNotificationEvent(msgFormat(baseMessage.type), baseMessage));
 			byteArray.clear();
 			byteArray = null;
 			e.byteArray.clear();
