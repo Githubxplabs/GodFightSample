@@ -8,7 +8,12 @@ package me.xplabs.interfaces.account
 	 */
 	public interface IAccount 
 	{
-		
+		function get userName():String;
+		function set userName(value:String):void;
+		function get passWord():String;
+		function set passWord(value:String):void;
+		function get playerName():String;
+		function set playerName(value:String):void;
 	}
 	
 }

@@ -1,5 +1,5 @@
 package me.xplabs.login.controller {
-	import me.xplabs.constant.AccountCheckintType;
+	import me.xplabs.constant.AccountCheckingType;
 	import me.xplabs.interfaces.account.IAccountChecking;
 	import me.xplabs.interfaces.player.IPlayerManager;
 	import me.xplabs.servers.lander.CSLogin;
@@ -25,7 +25,7 @@ package me.xplabs.login.controller {
 			super.execute();
 			var msg:CSLogin = baseMessage as CSLogin;
 			var checking:int = account.checking(msg.userName, msg.passWord);
-			if (checking == AccountCheckintType.CHECK_PASS)
+			if (checking == AccountCheckingType.CHECK_PASS)
 			{
 				playerManager.addPlayer(msg.clientId, msg.userName);
 			}

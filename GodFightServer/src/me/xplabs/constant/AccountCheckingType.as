@@ -5,7 +5,7 @@ package me.xplabs.constant
 	 * ...
 	 * @author xiaohan
 	 */
-	public class AccountCheckintType 
+	public class AccountCheckingType 
 	{
 		/**
 		 * 用户名错误

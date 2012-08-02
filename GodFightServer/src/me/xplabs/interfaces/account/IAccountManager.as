@@ -8,8 +8,29 @@ package me.xplabs.interfaces.account
 	 */
 	public interface IAccountManager 
 	{
+		/**
+		 * 添加一个帐户
+		 * @param	userName 用户名
+		 * @param	passWord 密码
+		 * @param	playerName 角色名
+		 */
 		function addAccount(userName:String, passWord:String, playerName:String):void;
-		function getAccount(userName:String):IAccount;
+		/**
+		 * 获取一个帐户
+		 * @param	userName 用户名
+		 * @return
+		 */
+		function getAccountByUserName(userName:String):IAccount;
+		/**
+		 * 获取一个帐户
+		 * @param	playerName 角色名
+		 * @return
+		 */
+		function getAccountByPlayerName(playerName:String):IAccount;
+		/**
+		 * 添加帐户列表
+		 * @param	xml 帐户列表数据
+		 */
 		function addAccountList(xml:XML):void;
 	}
 	

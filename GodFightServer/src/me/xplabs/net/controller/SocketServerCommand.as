@@ -26,7 +26,7 @@ package me.xplabs.net.controller {
 
 			injector.mapValue(IMessageRecognizerServers, messageRecognize);
 			injector.mapSingletonOf(IPlayerManager, PlayerManager);
-
+			
 			commandMap.mapEvent(msgFormat(MessageType.CS_LOGIN), CSLoginCommand, NetNotificationEvent);
 			messageRecognize.listener();
 		}

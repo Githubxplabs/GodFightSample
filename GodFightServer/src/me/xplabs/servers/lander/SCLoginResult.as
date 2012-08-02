@@ -11,7 +11,7 @@ package me.xplabs.servers.lander {
 		/**
 		 * 验证用户名和密码的状态
 		 */
-		public var checkedType : Boolean;
+		public var checkedType : int;
 
 		public function SCLoginResult() {
 		}
@@ -21,11 +21,11 @@ package me.xplabs.servers.lander {
 		}
 
 		override public function read() : void {
-			isLoginSucceed = readBoolean();
+			checkedType = readInt();
 		}
 
 		override public function write() : void {
-			writeBoolean(isLoginSucceed);
+			writeInt(checkedType);
 		}
 	}
 }

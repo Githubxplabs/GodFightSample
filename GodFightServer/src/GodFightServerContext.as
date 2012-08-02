@@ -1,5 +1,7 @@
 package {
 	import flash.display.DisplayObjectContainer;
+	import me.xplabs.account.controller.AccountManagerCommand;
+	import me.xplabs.account.model.AccountManager;
 	import me.xplabs.common.controller.GameManagerCommand;
 	import me.xplabs.common.model.GameManager;
 	import me.xplabs.interfaces.common.IGameManager;
@@ -31,8 +33,14 @@ package {
 			initGameManager();
 			initSocketServer();
 			initCommand();
-			super.startup();
+			loaderInit();
+			//super.startup();
 			trace("程序启动啦");
+		}
+		
+		private function loaderInit():void 
+		{
+			super.startup();
 		}
 		private function initGameManager():void
 		{
@@ -57,6 +65,7 @@ package {
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, GameManagerCommand, ContextEvent);
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, BindServerCommand, ContextEvent);
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, SocketServerCommand, ContextEvent);
+			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, AccountManagerCommand, ContextEvent);
 		}
 	}
 }
