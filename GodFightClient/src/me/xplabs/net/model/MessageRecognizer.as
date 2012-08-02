@@ -55,7 +55,7 @@ package me.xplabs.net.model
 			
 			eventMap.mapListener(IEventDispatcher(connector), NetEvent.NET_CONNECTED, connectedHandler);
 			eventMap.mapListener(IEventDispatcher(connector), NetEvent.NET_RECEIVE, receiveHandler);
-			connector.connect("127.0.0.1", 80);
+			//connector.connect("127.0.0.1", 80);
 		
 		}
 		/**

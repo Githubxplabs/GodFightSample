@@ -1,6 +1,7 @@
 package {
 	import flash.display.BitmapData;
 	import flash.display.Sprite;
+	import flash.display.StageAlign;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.geom.Point;
@@ -27,6 +28,9 @@ package {
 		}
 
 		private function init(e : Event = null) : void {
+			
+			stage.align = StageAlign.LEFT;
+			
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			addChild(new Stats());

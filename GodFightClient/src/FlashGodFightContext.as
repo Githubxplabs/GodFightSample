@@ -6,6 +6,7 @@ package {
 	import me.xplabs.net.controller.NetManagerCommand;
 	import me.xplabs.net.model.Connector;
 	import me.xplabs.net.model.MessageRecognizer;
+	import me.xplabs.StartUpCommand;
 	import me.xplabs.utils.MessageHandle;
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.mvcs.Context;
@@ -37,9 +38,9 @@ package {
 			injector.mapSingletonOf(IMessageRecognizer, MessageRecognizer);
 			
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, NetManagerCommand, ContextEvent);
+			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, StartUpCommand, ContextEvent);
 			
 			//contextView.addChild(new Image(Texture.fromBitmap(new PhotoTest())));
-			
 			super.startup();
 		}
 	}

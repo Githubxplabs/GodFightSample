@@ -23,6 +23,9 @@
       <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\src</path-element>
       <path-element>E:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
+    <library-path append="true">
+      <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\lib\gameUI.swc</path-element>
+    </library-path>
   </compiler>
   <file-specs>
     <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\src\Main.as</path-element>

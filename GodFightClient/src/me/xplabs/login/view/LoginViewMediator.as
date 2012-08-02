@@ -8,7 +8,8 @@ package me.xplabs.login.view
 	 */
 	public class LoginViewMediator extends Mediator 
 	{
-		
+		[Inject]
+		public var loginView:LoginView;
 		public function LoginViewMediator() 
 		{
 			super();
