@@ -9,9 +9,9 @@ package me.xplabs.servers.lander {
 	 */
 	public class SCLoginResult extends BaseMessage {
 		/**
-		 * 是否登陆成功
+		 * 验证用户名和密码的状态
 		 */
-		public var isLoginSucceed : Boolean;
+		public var checkedType : Boolean;
 
 		public function SCLoginResult() {
 		}

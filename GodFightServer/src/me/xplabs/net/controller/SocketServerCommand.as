@@ -16,7 +16,7 @@ package me.xplabs.net.controller {
 	 */
 	public class SocketServerCommand extends Command {
 		[Inject]
-		public var messageRecognize : IMessageRecognizer
+		public var messageRecognize : IMessageRecognizer;
 
 		public function SocketServerCommand() {
 			super();

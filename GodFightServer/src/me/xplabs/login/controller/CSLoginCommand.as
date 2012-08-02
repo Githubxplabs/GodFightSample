@@ -1,4 +1,6 @@
 package me.xplabs.login.controller {
+	import me.xplabs.constant.AccountCheckintType;
+	import me.xplabs.interfaces.account.IAccountChecking;
 	import me.xplabs.interfaces.player.IPlayerManager;
 	import me.xplabs.servers.lander.CSLogin;
 	import me.xplabs.servers.lander.SCLoginResult;
@@ -12,6 +14,9 @@ package me.xplabs.login.controller {
 	public class CSLoginCommand extends MsgCommand {
 		[Inject]
 		public var playerManager:IPlayerManager;
+		[Inject]
+		public var account:IAccountChecking;
+
 		public function CSLoginCommand() {
 			super();
 		}
@@ -19,13 +24,16 @@ package me.xplabs.login.controller {
 		override public function execute() : void {
 			super.execute();
 			var msg:CSLogin = baseMessage as CSLogin;
-			playerManager.addPlayer(msg.clientId, msg.userName);
+			var checking:int = account.checking(msg.userName, msg.passWord);
+			if (checking == AccountCheckintType.CHECK_PASS)
+			{
+				playerManager.addPlayer(msg.clientId, msg.userName);
+			}
+			//trace("客户端=="msg.clientId, "用户名==" + msg.userName, "登陆成功了!!");
 			
-			
-			trace("有客户端登录成功了");
 			var scLoginResult : SCLoginResult = new SCLoginResult();
-			scLoginResult.isLoginSucceed = true;
-			sendMsg("", scLoginResult);
+			scLoginResult.checkedType = checking;
+			sendMsg(msg.clientId, scLoginResult);
 		}
 	}
 }
