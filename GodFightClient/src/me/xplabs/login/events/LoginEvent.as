@@ -3,6 +3,7 @@ package me.xplabs.login.events
 	import starling.events.Event;
 	
 	/**
+	 * 登陆游戏事件类型定义
 	 * ...
 	 * @author xiaohan
 	 */

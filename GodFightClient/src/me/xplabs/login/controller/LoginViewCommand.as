@@ -5,6 +5,7 @@ package me.xplabs.login.controller
 	import org.robotlegs.mvcs.Command;
 	
 	/**
+	 * 登陆界面Command
 	 * ...
 	 * @author xiaohan
 	 */
