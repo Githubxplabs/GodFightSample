@@ -1,9 +1,13 @@
 package me.xplabs.net.controller {
 	import me.xplabs.interfaces.net.IMessageRecognizer;
 	import me.xplabs.interfaces.player.IPlayerManager;
+	import me.xplabs.interfaces.room.IRoomManager;
 	import me.xplabs.login.controller.CSLoginCommand;
 	import me.xplabs.net.events.NetNotificationEvent;
 	import me.xplabs.player.model.PlayerManager;
+	import me.xplabs.room.controller.EnterRoomCommand;
+	import me.xplabs.room.events.EnterRoomEvent;
+	import me.xplabs.room.model.RoomManager;
 	import me.xplabs.servers.MessageType;
 	import me.xplabs.utils.msgFormat;
 
@@ -24,6 +28,9 @@ package me.xplabs.net.controller {
 		override public function execute() : void {
 
 			injector.mapSingletonOf(IPlayerManager, PlayerManager);
+			injector.mapSingletonOf(IRoomManager, RoomManager);
+			
+			commandMap.mapEvent(EnterRoomEvent.ENTER_ROOM , EnterRoomCommand, EnterRoomEvent);
 			
 			commandMap.mapEvent(msgFormat(MessageType.CS_LOGIN), CSLoginCommand, NetNotificationEvent);
 			messageRecognize.listener();

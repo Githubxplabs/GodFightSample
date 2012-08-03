@@ -54,6 +54,14 @@ package me.xplabs.account.model
 		
 		public function getAccountByUserName(userName:String):IAccount 
 		{
+			var len:int = _accountList.length;
+			for (var i:int = 0; i < len; i++) 
+			{
+				if (_accountList[i].userName == userName)
+				{
+					return _accountList[i]
+				}
+			}
 			return null;
 		}
 		
@@ -72,6 +80,7 @@ package me.xplabs.account.model
 				account.userName = item.@userName;
 				account.passWord = item.@passWord;
 				account.playerName = item.@playerName;
+				account.playerId = item.@playerId;
 				_accountList[_accountList.length] = account;
 			}
 		}

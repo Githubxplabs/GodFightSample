@@ -52,6 +52,11 @@ package me.xplabs.utils {
 			_msgDescribe = new Dictionary();
 			_msgDescribe[MessageType.CS_LOGIN] = "收到登录游戏请求--CS_LOGIN=" + MessageType.CS_LOGIN;
 			_msgDescribe[MessageType.SC_LOGIN_RESULT] = "发送登录游戏结果--SC_LOGIN_RESULT=" + MessageType.SC_LOGIN_RESULT;
+			_msgDescribe[MessageType.SC_PLAYER_INFO] = "发送玩家的基本属性--SC_PLAYER_INFO=" + MessageType.SC_PLAYER_INFO;
+			_msgDescribe[MessageType.SC_ENTER_ROOM] = "发送进入房间的消息--SC_ENTER_ROOM=" + MessageType.SC_ENTER_ROOM;
+			_msgDescribe[MessageType.SC_ROOM_MEMBER_JOIN] = "发送有成员进入房间的消息--SC_ROOM_MEMBER_JOIN=" + MessageType.SC_ROOM_MEMBER_JOIN;
+			_msgDescribe[MessageType.SC_ROOM_MEMBER_EXIT] = "发送成员有退出房间的消息--SC_ROOM_MEMBER_EXIT=" + MessageType.SC_ROOM_MEMBER_EXIT;
+			_msgDescribe[MessageType.CS_ENTER_BATTLE] = "收到进入战斗的请求--CS_ENTER_BATTLE=" + MessageType.CS_ENTER_BATTLE;
 			return _msgDescribe[msgType];
 		}
 	}

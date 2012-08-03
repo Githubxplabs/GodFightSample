@@ -1,10 +1,13 @@
 package me.xplabs.login.controller {
 	import me.xplabs.constant.AccountCheckingType;
 	import me.xplabs.interfaces.account.IAccountChecking;
+	import me.xplabs.interfaces.player.IPlayer;
 	import me.xplabs.interfaces.player.IPlayerManager;
+	import me.xplabs.room.events.EnterRoomEvent;
 	import me.xplabs.servers.lander.CSLogin;
 	import me.xplabs.servers.lander.SCLoginResult;
 	import me.xplabs.servers.MsgCommand;
+	import me.xplabs.servers.player.SCPlayerInfo;
 	import me.xplabs.utils.sendMsg;
 
 	/**
@@ -32,8 +35,13 @@ package me.xplabs.login.controller {
 			
 			if (checking == AccountCheckingType.CHECK_PASS)
 			{
-				playerManager.addPlayer(msg.clientId, msg.userName);
+				var player:IPlayer = playerManager.addPlayer(msg.clientId, msg.userName);
+				var scPlayerInfo:SCPlayerInfo = new SCPlayerInfo();
+				scPlayerInfo.playerId = player.playerId;
+				scPlayerInfo.playerName = player.playerName;
+				sendMsg(msg.clientId, scPlayerInfo);
 				
+				dispatch(new EnterRoomEvent(EnterRoomEvent.ENTER_ROOM, player));
 			}
 			//trace("客户端=="msg.clientId, "用户名==" + msg.userName, "登陆成功了!!");
 		}

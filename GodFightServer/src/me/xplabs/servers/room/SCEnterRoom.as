@@ -26,6 +26,7 @@ package me.xplabs.servers.room
 			members = new Vector.<RoomMember>(len);
 			for (var i:int = 0; i < len; i++) 
 			{
+				members[i] = new RoomMember();
 				members[i].memberId = readInt();
 				members[i].memberName = readString();
 				members[i].camp = readShort();

@@ -14,6 +14,9 @@ package me.xplabs.interfaces.account
 		function set passWord(value:String):void;
 		function get playerName():String;
 		function set playerName(value:String):void;
+		function get playerId():int;
+		function set playerId(value:int):void;
+		
 	}
 	
 }

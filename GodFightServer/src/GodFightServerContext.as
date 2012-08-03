@@ -47,10 +47,6 @@ package {
 		
 		private function loaderInit():void 
 		{
-			//var file:File = new File("app:/assets");
-			//var file:File = new File("app-storage:/assets");
-			//var files:Array = file.getDirectoryListing();
-			//var files:Array = File.getRootDirectories();
 			injector.mapSingletonOf(ILibrary, Library);
 			injector.mapSingletonOf(ILocalFileManager , LocalFileManager);
 			super.startup();

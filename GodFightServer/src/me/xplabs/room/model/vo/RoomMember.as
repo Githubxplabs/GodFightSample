@@ -15,7 +15,15 @@ package me.xplabs.room.model.vo
 		{
 			
 		}
-		
+		public function clone():RoomMember
+		{
+			var member:RoomMember = new RoomMember();
+			member.memberId = this.memberId;
+			member.memberName = this.memberName;
+			member.camp = this.camp;
+			member.houseOwner = this.houseOwner;
+			return member;
+		}
 	}
 
 }

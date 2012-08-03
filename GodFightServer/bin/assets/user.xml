@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
-	<account userName="hanxianming" passWord="123456789" playerName="韩贤明" />
-	<account userName="xplabs" passWord="123456789" playerName="极限编程" />
+	<account userName="hanxianming" passWord="123456789" playerName="韩贤明" playerId="1" />
+	<account userName="xplabs" passWord="123456789" playerName="极限编程" playerId="2" />
 </data>

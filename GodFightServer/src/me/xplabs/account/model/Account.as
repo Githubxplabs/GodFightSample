@@ -10,10 +10,23 @@ package me.xplabs.account.model
 		private var _userName:String;
 		private var _passWord:String;
 		private var _playerName:String;
+		private var _playerId:int;
 		
 		public function Account() 
 		{
 			
+		}
+		
+		/* INTERFACE me.xplabs.interfaces.account.IAccount */
+		
+		public function get playerId():int 
+		{
+			return _playerId;
+		}
+		
+		public function set playerId(value:int):void 
+		{
+			_playerId = value;
 		}
 		
 		/* INTERFACE me.xplabs.interfaces.account.IAccount */
