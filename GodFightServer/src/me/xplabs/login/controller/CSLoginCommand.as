@@ -25,15 +25,17 @@ package me.xplabs.login.controller {
 			super.execute();
 			var msg:CSLogin = baseMessage as CSLogin;
 			var checking:int = account.checking(msg.userName, msg.passWord);
-			if (checking == AccountCheckingType.CHECK_PASS)
-			{
-				playerManager.addPlayer(msg.clientId, msg.userName);
-			}
-			//trace("客户端=="msg.clientId, "用户名==" + msg.userName, "登陆成功了!!");
 			
 			var scLoginResult : SCLoginResult = new SCLoginResult();
 			scLoginResult.checkedType = checking;
 			sendMsg(msg.clientId, scLoginResult);
+			
+			if (checking == AccountCheckingType.CHECK_PASS)
+			{
+				playerManager.addPlayer(msg.clientId, msg.userName);
+				
+			}
+			//trace("客户端=="msg.clientId, "用户名==" + msg.userName, "登陆成功了!!");
 		}
 	}
 }

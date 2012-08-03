@@ -7,6 +7,8 @@ package me.xplabs.interfaces.player
 	 */
 	public interface IPlayer
 	{
+		function get playerId():int;
+		function set playerId(value:int):void;
 		function get clientId():String;
 		function set clientId(id:String):void;
 		function get playerName():String;
