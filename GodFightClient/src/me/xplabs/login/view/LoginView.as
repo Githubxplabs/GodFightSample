@@ -35,7 +35,7 @@ package me.xplabs.login.view
 			addChild(image);
 			
 			_userNameInput = new UITextInput();
-			_userNameInput.text = "韩贤明";
+			_userNameInput.text = "hanxianming";
 			_userNameInput.x = 599;
 			_userNameInput.y = 658;
 			_userNameInput.setWH(161);
@@ -43,7 +43,7 @@ package me.xplabs.login.view
 			Starling.current.nativeStage.addChild(_userNameInput);
 			
 			_passWordInput = new UITextInput();
-			_passWordInput.text = "123456";
+			_passWordInput.text = "123456789";
 			_passWordInput.x = 599;
 			_passWordInput.y = 697;
 			_passWordInput.setWH(161);
