@@ -10,6 +10,10 @@ package me.xplabs.net.model
 	import me.xplabs.servers.lander.CSLogin;
 	import me.xplabs.servers.lander.SCLoginResult;
 	import me.xplabs.servers.MessageType;
+	import me.xplabs.servers.player.SCPlayerInfo;
+	import me.xplabs.servers.room.SCEnterRoom;
+	import me.xplabs.servers.room.SCRoomMemberExit;
+	import me.xplabs.servers.room.SCRoomMemberJoin;
 	import me.xplabs.utils.msgFormat;
 	import me.xplabs.utils.printMsg;
 	import me.xplabs.utils.sendMsg;
@@ -69,6 +73,10 @@ package me.xplabs.net.model
 		{
 			_msgs = new Dictionary();
 			_msgs[MessageType.SC_LOGIN_RESULT] = new SCLoginResult();
+			_msgs[MessageType.SC_LOGIN_RESULT] = new SCEnterRoom();
+			_msgs[MessageType.SC_LOGIN_RESULT] = new SCRoomMemberJoin();
+			_msgs[MessageType.SC_LOGIN_RESULT] = new SCRoomMemberExit();
+			_msgs[MessageType.SC_LOGIN_RESULT] = new SCPlayerInfo();
 			
 		}
 		/**

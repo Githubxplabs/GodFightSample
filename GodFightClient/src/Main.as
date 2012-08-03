@@ -1,18 +1,9 @@
 package {
-	import flash.display.BitmapData;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
-	import flash.events.KeyboardEvent;
-	import flash.geom.Point;
-	import flash.ui.Mouse;
-	import flash.ui.MouseCursorData;
-
-	import me.xplabs.mouse.MouseManager;
-
 	import net.hires.debug.Stats;
-
 	import starling.core.Starling;
 
 	/**

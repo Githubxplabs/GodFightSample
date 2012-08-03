@@ -4,6 +4,7 @@ package me.xplabs.net.model
 	import flash.utils.ByteArray;
 	import flash.utils.Dictionary;
 	import me.xplabs.interfaces.common.IGameManager;
+	import me.xplabs.servers.room.CSEnterBattle;
 	
 	import me.xplabs.interfaces.net.IMessageRecognizer;
 	import me.xplabs.interfaces.net.IServerSocket;
@@ -45,6 +46,7 @@ package me.xplabs.net.model
 		{
 			_msgs = new Dictionary();
 			_msgs[MessageType.CS_LOGIN] = new CSLogin();
+			_msgs[MessageType.CS_LOGIN] = new CSEnterBattle();
 		}
 		
 		private function receiveHandler(e:NetEvent):void
