@@ -161,3 +161,5 @@
 
 # Mac crap
 # .DS_Store
+/GodFightServer/bin
+/GodFightClient/bin
