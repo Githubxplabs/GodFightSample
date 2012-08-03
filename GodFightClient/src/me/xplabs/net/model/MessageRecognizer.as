@@ -73,10 +73,10 @@ package me.xplabs.net.model
 		{
 			_msgs = new Dictionary();
 			_msgs[MessageType.SC_LOGIN_RESULT] = new SCLoginResult();
-			_msgs[MessageType.SC_LOGIN_RESULT] = new SCEnterRoom();
-			_msgs[MessageType.SC_LOGIN_RESULT] = new SCRoomMemberJoin();
-			_msgs[MessageType.SC_LOGIN_RESULT] = new SCRoomMemberExit();
-			_msgs[MessageType.SC_LOGIN_RESULT] = new SCPlayerInfo();
+			_msgs[MessageType.SC_ENTER_ROOM] = new SCEnterRoom();
+			_msgs[MessageType.SC_ROOM_MEMBER_JOIN] = new SCRoomMemberJoin();
+			_msgs[MessageType.SC_ROOM_MEMBER_EXIT] = new SCRoomMemberExit();
+			_msgs[MessageType.SC_PLAYER_INFO] = new SCPlayerInfo();
 			
 		}
 		/**

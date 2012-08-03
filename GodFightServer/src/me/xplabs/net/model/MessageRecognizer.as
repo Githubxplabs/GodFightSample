@@ -46,7 +46,7 @@ package me.xplabs.net.model
 		{
 			_msgs = new Dictionary();
 			_msgs[MessageType.CS_LOGIN] = new CSLogin();
-			_msgs[MessageType.CS_LOGIN] = new CSEnterBattle();
+			_msgs[MessageType.CS_ENTER_BATTLE] = new CSEnterBattle();
 		}
 		
 		private function receiveHandler(e:NetEvent):void
