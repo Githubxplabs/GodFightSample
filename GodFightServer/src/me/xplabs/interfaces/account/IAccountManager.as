@@ -31,7 +31,7 @@ package me.xplabs.interfaces.account
 		 * 添加帐户列表
 		 * @param	xml 帐户列表数据
 		 */
-		function addAccountList(xml:XML):void;
+		function init():void;
 	}
 	
 }

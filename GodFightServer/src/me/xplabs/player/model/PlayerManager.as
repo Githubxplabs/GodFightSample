@@ -2,6 +2,7 @@ package me.xplabs.player.model
 {
 	import me.xplabs.interfaces.player.IPlayer;
 	import me.xplabs.interfaces.player.IPlayerManager;
+	import me.xplabs.player.vo.PlayerInfo;
 	import org.robotlegs.mvcs.Actor;
 	
 	/**
@@ -11,7 +12,6 @@ package me.xplabs.player.model
 	 */
 	public class PlayerManager extends Actor implements IPlayerManager
 	{
-		
 		public function PlayerManager() 
 		{
 			super();
@@ -34,6 +34,8 @@ package me.xplabs.player.model
 		 */		
 		public function addPlayer(clientId:String, userName:String):IPlayer 
 		{
+			var player:IPlayer = new PlayerInfo();
+			player.clientId = clientId;
 			return null;
 		}
 		/**

@@ -1,11 +1,18 @@
 package {
 	import flash.display.DisplayObjectContainer;
+	import flash.filesystem.File;
 	import me.xplabs.account.controller.AccountManagerCommand;
 	import me.xplabs.account.model.AccountManager;
 	import me.xplabs.common.controller.GameManagerCommand;
+	import me.xplabs.common.controller.LocalFileCommand;
+	import me.xplabs.common.events.LoaderEvent;
 	import me.xplabs.common.model.GameManager;
+	import me.xplabs.common.model.Library;
+	import me.xplabs.common.model.LocalFileManager;
 	import me.xplabs.interfaces.common.IGameManager;
 	import me.xplabs.interfaces.common.IGameManagerStateControl;
+	import me.xplabs.interfaces.common.ILibrary;
+	import me.xplabs.interfaces.common.ILocalFileManager;
 	import me.xplabs.interfaces.common.IUpdate;
 
 	import me.xplabs.interfaces.net.IMessageRecognizer;
@@ -40,6 +47,12 @@ package {
 		
 		private function loaderInit():void 
 		{
+			//var file:File = new File("app:/assets");
+			//var file:File = new File("app-storage:/assets");
+			//var files:Array = file.getDirectoryListing();
+			//var files:Array = File.getRootDirectories();
+			injector.mapSingletonOf(ILibrary, Library);
+			injector.mapSingletonOf(ILocalFileManager , LocalFileManager);
 			super.startup();
 		}
 		private function initGameManager():void
@@ -62,10 +75,7 @@ package {
 		}
 		private function initCommand():void
 		{
-			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, GameManagerCommand, ContextEvent);
-			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, BindServerCommand, ContextEvent);
-			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, SocketServerCommand, ContextEvent);
-			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, AccountManagerCommand, ContextEvent);
+			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, LocalFileCommand, ContextEvent);
 		}
 	}
 }

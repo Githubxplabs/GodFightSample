@@ -4,6 +4,8 @@ package me.xplabs.account.model
 	import me.xplabs.interfaces.account.IAccount;
 	import me.xplabs.interfaces.account.IAccountChecking;
 	import me.xplabs.interfaces.account.IAccountManager;
+	import me.xplabs.interfaces.common.ILibrary;
+	import me.xplabs.interfaces.common.ILocalFileManager;
 	import org.robotlegs.mvcs.Actor;
 	
 	/**
@@ -12,18 +14,14 @@ package me.xplabs.account.model
 	 */
 	public class AccountManager extends Actor implements IAccountChecking, IAccountManager 
 	{
+		[Inject]
+		public var library:ILibrary;
+		[Inject]
+		public var localFile:ILocalFileManager;
 		private var _accountList:Vector.<IAccount>;
 		public function AccountManager() 
 		{
 			super();
-			
-			_accountList = new Vector.<IAccount>();
-			var account:Account = new Account();
-			account.userName = "韩贤明";
-			account.passWord = "123456789";
-			account.playerName = "韩贤明";
-			_accountList[_accountList.length] = account;
-			
 		}
 		
 		/* INTERFACE me.xplabs.interfaces.account.IAccountChecking */
@@ -51,7 +49,7 @@ package me.xplabs.account.model
 		
 		public function addAccount(userName:String, passWord:String, playerName:String):void 
 		{
-			
+			//localFile.save();
 		}
 		
 		public function getAccountByUserName(userName:String):IAccount 
@@ -64,9 +62,18 @@ package me.xplabs.account.model
 			return null;
 		}
 		
-		public function addAccountList(xml:XML):void 
+		public function init():void 
 		{
-			
+			_accountList = new Vector.<IAccount>();
+			var xml:XML = new XML(library.getData("user.xml"));
+			for each (var item:XML in xml.account) 
+			{
+				var account:Account = new Account();
+				account.userName = item.@userName;
+				account.passWord = item.@passWord;
+				account.playerName = item.@playerName;
+				_accountList[_accountList.length] = account;
+			}
 		}
 		
 	}

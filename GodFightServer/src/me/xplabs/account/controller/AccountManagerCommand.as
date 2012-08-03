@@ -11,7 +11,8 @@ package me.xplabs.account.controller
 	 */
 	public class AccountManagerCommand extends Command 
 	{
-		
+		[Inject]
+		public var account:IAccountManager;
 		public function AccountManagerCommand() 
 		{
 			super();
@@ -19,11 +20,8 @@ package me.xplabs.account.controller
 		}
 		override public function execute():void 
 		{
-			var account:AccountManager = new AccountManager();
-			
-			
 			injector.mapValue(IAccountChecking, account);
-			injector.mapValue(IAccountManager, account);
+			account.init();
 		}
 		
 	}
