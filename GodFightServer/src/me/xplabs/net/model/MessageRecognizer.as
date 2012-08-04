@@ -40,7 +40,14 @@ package me.xplabs.net.model
 		{
 			initMsgInstance();
 			eventMap.mapListener(IEventDispatcher(socketServer), NetEvent.NET_RECEIVE, receiveHandler);
+			eventMap.mapListener(IEventDispatcher(socketServer), NetEvent.NET_CLIENT_CLOSE, clientCloseHandler);
 			gameManager.addUpdate(socketServer.updateSockeConnected);
+		}
+		
+		private function clientCloseHandler(e:NetEvent):void 
+		{
+			//dispatch(e);
+			dispatch(new NetEvent(NetEvent.NET_CLIENT_CLOSE, null, e.clientId));
 		}
 		private function initMsgInstance():void
 		{

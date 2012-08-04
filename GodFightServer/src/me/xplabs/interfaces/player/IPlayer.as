@@ -17,6 +17,7 @@ package me.xplabs.interfaces.player
 		function set camp(campType:int):void;
 		function get houseOwner():Boolean;
 		function set houseOwner(value:Boolean):void;
+		function dispose():void;
 		
 	}
 }

@@ -69,6 +69,10 @@ package me.xplabs.player.vo
 		{
 			_houseOwner = value;
 		}
+		public function dispose():void
+		{
+			
+		}
 		
 	}
 

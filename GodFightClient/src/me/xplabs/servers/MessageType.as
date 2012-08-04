@@ -14,6 +14,7 @@ package me.xplabs.servers
 		static public const SC_ROOM_MEMBER_JOIN:int = 5;
 		static public const SC_ROOM_MEMBER_EXIT:int = 6;
 		static public const CS_ENTER_BATTLE:int = 7;
+		static public const SC_ADVANCE_HOUSE_OWNER:int = 8;
 		public function MessageType(type:String, bubbles:Boolean=false,  data : Object = null) 
 		{
 			super(type, bubbles, data);

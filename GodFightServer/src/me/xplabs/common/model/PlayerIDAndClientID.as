@@ -37,6 +37,23 @@ package me.xplabs.common.model
 		{
 			ids[clientId] = playerId;
 		}
+		
+		public function delIdByPlayerId(playerId:int):void 
+		{
+			for(var name:String in ids) 
+			{
+				if (ids[name] == playerId)
+				{
+					delete ids[name];
+					break;
+				}
+			}
+		}
+		
+		public function delIdByClientId(clientId:String):void 
+		{
+			delete ids[clientId];
+		}
 
 	}
 

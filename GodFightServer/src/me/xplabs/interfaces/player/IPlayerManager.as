@@ -32,6 +32,13 @@ package me.xplabs.interfaces.player
 		 * @param	playerId 玩家的id
 		 */
 		function advanceHouseOwner(playerId:int):void;
+		/**
+		 * 删除一个玩家
+		 * @param	playerId 玩家的id
+		 * @return
+		 */
+		function delPlayer(playerId:int):IPlayer;
+		
 	}
 	
 }

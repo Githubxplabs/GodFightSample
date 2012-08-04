@@ -111,13 +111,11 @@ package me.xplabs.net.model {
 		
 		public function updateSockeConnected():void 
 		{
-			//trace("一直在检测");
 			for(var name:String in _sockets) 
 			{
 				if (!Socket(_sockets[name]).connected)
 				{
-					dispatchEvent(new NetEvent(NetEvent.NET_CLIENT_CLOSE));
-					//Socket(_sockets[name]).close();
+					dispatchEvent(new NetEvent(NetEvent.NET_CLIENT_CLOSE, null, name));
 					delete _sockets[name];
 				}
 			}

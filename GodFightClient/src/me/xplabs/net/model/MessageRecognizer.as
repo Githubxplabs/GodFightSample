@@ -11,6 +11,7 @@ package me.xplabs.net.model
 	import me.xplabs.servers.lander.SCLoginResult;
 	import me.xplabs.servers.MessageType;
 	import me.xplabs.servers.player.SCPlayerInfo;
+	import me.xplabs.servers.room.SCAdvanceHouseOwner;
 	import me.xplabs.servers.room.SCEnterRoom;
 	import me.xplabs.servers.room.SCRoomMemberExit;
 	import me.xplabs.servers.room.SCRoomMemberJoin;
@@ -77,6 +78,7 @@ package me.xplabs.net.model
 			_msgs[MessageType.SC_ROOM_MEMBER_JOIN] = new SCRoomMemberJoin();
 			_msgs[MessageType.SC_ROOM_MEMBER_EXIT] = new SCRoomMemberExit();
 			_msgs[MessageType.SC_PLAYER_INFO] = new SCPlayerInfo();
+			_msgs[MessageType.SC_ADVANCE_HOUSE_OWNER] = new SCAdvanceHouseOwner();
 			
 		}
 		/**

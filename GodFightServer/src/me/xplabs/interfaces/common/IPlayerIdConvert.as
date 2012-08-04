@@ -11,6 +11,8 @@ package me.xplabs.interfaces.common
 		function getClientId(playerId:int):String;
 		function getPlayerId(clientId:String):int;
 		function setId(clientId:String, playerId:int):void;
+		function delIdByPlayerId(playerId:int):void;
+		function delIdByClientId(clientId:String):void;
 		
 	}
 	

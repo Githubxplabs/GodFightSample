@@ -3,6 +3,8 @@ package me.xplabs.room.model
 	import me.xplabs.interfaces.common.IPlayerIdConvert;
 	import me.xplabs.interfaces.room.IRoomManager;
 	import me.xplabs.room.model.vo.RoomMember;
+	import me.xplabs.servers.room.SCAdvanceHouseOwner;
+	import me.xplabs.servers.room.SCRoomMemberExit;
 	import me.xplabs.servers.room.SCRoomMemberJoin;
 	import me.xplabs.utils.sendMsg;
 	/**
@@ -54,7 +56,48 @@ package me.xplabs.room.model
 		
 		public function delMember(memberId:int):RoomMember 
 		{
-			return null;
+			var len:int = _members.length;
+			for (var i:int = 0; i < len; i++) 
+			{
+				if (_members[i].memberId == memberId)
+				{
+					var member:RoomMember = _members.splice(i, 1)[0];
+					break;
+				}
+			}
+			var sCRoomMemberExit:SCRoomMemberExit = new SCRoomMemberExit();
+			sCRoomMemberExit.memberId = memberId;
+			len = _members.length;
+			for (i = 0; i < len; i++) 
+			{
+				sendMsg(playerIdConvert.getClientId(_members[i].memberId), sCRoomMemberExit);
+			}
+			
+			
+			if (member && member.houseOwner && _members.length > 0)
+			{
+				advanceHouseOwner(_members[0].memberId);
+			}
+			
+			return member;
+		}
+		public function advanceHouseOwner(memberId:int):void
+		{
+			var len:int = _members.length;
+			for (var i:int = 0; i < len; i++) 
+			{
+				if (_members[i].memberId == memberId)
+				{
+					_members[i].houseOwner = true;
+				}else {
+					_members[i].houseOwner = false;
+				}
+			}
+			
+			var scAdvanceHouseOwner:SCAdvanceHouseOwner = new SCAdvanceHouseOwner();
+			scAdvanceHouseOwner.memberId = memberId;
+			sendMsg(playerIdConvert.getClientId(memberId), scAdvanceHouseOwner);
+			
 		}
 		
 	}

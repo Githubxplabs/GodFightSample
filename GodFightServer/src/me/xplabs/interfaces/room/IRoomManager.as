@@ -12,6 +12,7 @@ package me.xplabs.interfaces.room
 		function get members():Vector.<RoomMember>;
 		function addMember(memberId:int, memberName:String, camp:int, houseOwner:Boolean):RoomMember;
 		function delMember(memberId:int):RoomMember;
+		function advanceHouseOwner(memberId:int):void;
 	}
 	
 }

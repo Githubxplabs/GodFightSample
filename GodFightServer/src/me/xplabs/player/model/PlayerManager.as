@@ -73,6 +73,7 @@ package me.xplabs.player.model
 				}
 			}
 			playerIdConvert.setId(clientId, player.playerId);
+			_players[_players.length] = player;
 			return player;
 		}
 		/**
@@ -92,6 +93,24 @@ package me.xplabs.player.model
 		public function advanceHouseOwner(playerId:int):void 
 		{
 			
+		}
+		/**
+		 * 删除一个玩家
+		 * @param	playerId 玩家的id
+		 * @return
+		 */
+		public function delPlayer(playerId:int):IPlayer 
+		{
+			var len:int = _players.length;
+			for (var i:int = 0; i < len; i++) 
+			{
+				if (_players[i].playerId == playerId)
+				{
+					_players[i].dispose();
+					return _players.splice(i, 1)[0];
+				}
+			}
+			return null;
 		}
 		
 	}
