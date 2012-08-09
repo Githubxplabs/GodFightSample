@@ -128,7 +128,7 @@ package me.xplabs.common.ui {
 					resetContents();
 				}
 			} else if (touch.phase == TouchPhase.ENDED && mIsDown) {
-				Mouse.cursor = MouseCursor.BUTTON;
+				//Mouse.cursor = MouseCursor.BUTTON;
 				resetContents();
 				dispatchEventWith(Event.TRIGGERED, true);
 			}

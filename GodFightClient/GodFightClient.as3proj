@@ -51,6 +51,7 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="lib\gameUI.swc" />
+    <element path="lib\roomUI.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

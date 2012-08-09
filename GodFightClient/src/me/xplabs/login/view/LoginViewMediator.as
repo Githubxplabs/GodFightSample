@@ -19,15 +19,28 @@ package me.xplabs.login.view
 		override public function onRegister():void 
 		{
 			loginView.init();
-			loginView.addEventListener(LoginEvent.CLICK_ENTER_GAME, clickEnterGameHandler);
+			addViewListener(LoginEvent.CLICK_ENTER_GAME, clickEnterGameHandler, LoginEvent);
+			addContextListener(LoginEvent.REMOVE_LOGIN_SCENE, removeLoginHandler, LoginEvent);
 		}
-		
+		/**
+		 * 移除登陆场景
+		 * @param	e
+		 */
+		private function removeLoginHandler(e:LoginEvent):void 
+		{
+			if (loginView.parent != null) loginView.parent.removeChild(loginView);
+		}
+		/**
+		 * 点击进入游戏按钮，抛出事件
+		 * @param	e
+		 */
 		private function clickEnterGameHandler(e:LoginEvent):void 
 		{
 			dispatch(e);
 		}
 		override public function onRemove():void 
 		{
+			removeViewListener(LoginEvent.CLICK_ENTER_GAME, clickEnterGameHandler, LoginEvent);
 			loginView.dispose();
 		}
 	}

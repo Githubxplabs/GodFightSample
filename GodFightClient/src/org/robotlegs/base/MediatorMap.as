@@ -10,6 +10,7 @@ package org.robotlegs.base
 	import starling.display.DisplayObject;
 	import starling.display.DisplayObjectContainer;
 	import starling.display.Sprite;
+	import starling.events.EnterFrameEvent;
 	import starling.events.Event;
 	import flash.utils.Dictionary;
 	import flash.utils.getQualifiedClassName;
@@ -82,6 +83,8 @@ package org.robotlegs.base
 			this.mappingConfigByView = new Dictionary(true);
 			this.mappingConfigByViewClassName = new Dictionary(false);
 			this.mediatorsMarkedForRemoval = new Dictionary(false);
+			
+			contextView.addChild(enterFrameDispatcher);
 		}
 		
 		//---------------------------------------------------------------------
@@ -321,7 +324,7 @@ package org.robotlegs.base
 				if (!hasMediatorsMarkedForRemoval)
 				{
 					hasMediatorsMarkedForRemoval = true;
-					enterFrameDispatcher.addEventListener(Event.ENTER_FRAME, removeMediatorLater);
+					enterFrameDispatcher.addEventListener(EnterFrameEvent.ENTER_FRAME, removeMediatorLater);
 				}
 			}
 		}
@@ -331,7 +334,7 @@ package org.robotlegs.base
 		 */
 		protected function removeMediatorLater(event:Event):void
 		{
-			enterFrameDispatcher.removeEventListener(Event.ENTER_FRAME, removeMediatorLater);
+			enterFrameDispatcher.removeEventListener(EnterFrameEvent.ENTER_FRAME, removeMediatorLater);
 			for each (var view:DisplayObject in mediatorsMarkedForRemoval)
 			{
 				if (!view.stage)

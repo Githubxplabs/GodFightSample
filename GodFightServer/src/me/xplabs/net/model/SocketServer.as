@@ -75,22 +75,29 @@ package me.xplabs.net.model {
 		private function receiveHandler(e : ProgressEvent) : void {
 			
 			var socket : Socket = Socket(e.currentTarget);
+			try 
+			{
 			var cliendId:String = getClientIdBySocket(socket);
-			socket.readBytes(_recvBytes, _recvBytes.length);
-			if (_recvBytes.bytesAvailable < 2) return;
-			var position : int = _recvBytes.readUnsignedInt();
-			_recvBytes.position -= 2;
-			while ( position <= _recvBytes.bytesAvailable) {
-				_bytesNode.clear();
-				_recvBytes.readBytes(_bytesNode, 0, position);
-				dispatchEvent(new NetEvent(NetEvent.NET_RECEIVE, _bytesNode, cliendId));
-				if (_recvBytes.bytesAvailable > 2) {
-					position = _recvBytes.readUnsignedInt();
-					_recvBytes.position -= 2;
-				} else {
-					if (_recvBytes.bytesAvailable == 0) _recvBytes.clear();
-					return;
+				socket.readBytes(_recvBytes, _recvBytes.length);
+				if (_recvBytes.bytesAvailable < 2) return;
+				var position : int = _recvBytes.readUnsignedInt();
+				_recvBytes.position -= 2;
+				while ( position <= _recvBytes.bytesAvailable) {
+					_bytesNode.clear();
+					_recvBytes.readBytes(_bytesNode, 0, position);
+					dispatchEvent(new NetEvent(NetEvent.NET_RECEIVE, _bytesNode, cliendId));
+					if (_recvBytes.bytesAvailable > 2) {
+						position = _recvBytes.readUnsignedInt();
+						_recvBytes.position -= 2;
+					} else {
+						if (_recvBytes.bytesAvailable == 0) _recvBytes.clear();
+						return;
+					}
 				}
+			}catch (e:Error)
+			{
+				socket.close();
+				trace("关闭无效连接");
 			}
 		}
 
@@ -115,6 +122,7 @@ package me.xplabs.net.model {
 			{
 				if (!Socket(_sockets[name]).connected)
 				{
+					trace("删除无效连接");
 					dispatchEvent(new NetEvent(NetEvent.NET_CLIENT_CLOSE, null, name));
 					delete _sockets[name];
 				}

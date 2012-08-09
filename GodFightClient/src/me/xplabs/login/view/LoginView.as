@@ -52,6 +52,7 @@ package me.xplabs.login.view
 			Starling.current.nativeStage.addChild(_passWordInput);
 			
 			_enterGameBtn = new UIButton(Texture.fromBitmapData(new UIEnterGame_UP()), "", Texture.fromBitmapData(new UIEnterGame_DOWN()), Texture.fromBitmapData(new UIEnterGame_OVER()));
+			//_enterGameBtn = new Button(Texture.fromBitmapData(new UIEnterGame_UP()), "", Texture.fromBitmapData(new UIEnterGame_DOWN()));
 			_enterGameBtn.x = 798;
 			_enterGameBtn.y = 670;
 			addChild(_enterGameBtn);
@@ -66,6 +67,13 @@ package me.xplabs.login.view
 		}
 		override public function dispose():void 
 		{
+			if (_userNameInput.parent) _userNameInput.parent.removeChild(_userNameInput);
+			if (_passWordInput.parent) _passWordInput.parent.removeChild(_passWordInput);
+			_enterGameBtn.removeEventListeners();
+			image = null;
+			_userNameInput = null;
+			_passWordInput = null;
+			_enterGameBtn = null;
 			super.dispose();
 		}
 		
