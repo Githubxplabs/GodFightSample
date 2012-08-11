@@ -34,6 +34,9 @@ package me.xplabs.room.view
 			_chiYouSymbol.x = 30;
 			_chiYouSymbol.y = 425;
 			addChild(_chiYouSymbol);
+			
+			
+			
 		}
 		override public function dispose():void 
 		{
