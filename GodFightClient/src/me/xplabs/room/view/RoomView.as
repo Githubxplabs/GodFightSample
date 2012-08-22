@@ -35,6 +35,11 @@ package me.xplabs.room.view
 			_chiYouSymbol.y = 425;
 			addChild(_chiYouSymbol);
 			
+			var tempFrame:RoomFigureFrame = new RoomFigureFrame();
+			tempFrame.show(Texture.fromBitmapData(new RoomRoleFrame()));
+			addChild(tempFrame);
+			tempFrame.x = 350;
+			tempFrame.y = 110;
 			
 			
 		}

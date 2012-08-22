@@ -10,10 +10,11 @@ package me.xplabs.room.view
 	 * ...
 	 * @author xiaohan
 	 */
-	public class RoomRoleFrame extends Sprite 
+	public class RoomFigureFrame extends Sprite 
 	{
 		private var _background:Image;
-		public function RoomRoleFrame() 
+		private var _headIcon:Image;
+		public function RoomFigureFrame() 
 		{
 			
 		}
@@ -22,9 +23,16 @@ package me.xplabs.room.view
 			_background = new Image(texture);
 			addChild(_background);
 		}
-		public function changeRole():void
+		public function changeRole(texture:Texture):void
 		{
-			
+			if (!_headIcon)
+			{
+				_headIcon = new Image(texture);
+				addChild(_headIcon);
+			}else
+			{
+				_headIcon.texture = texture;
+			}
 		}
 		override public function dispose():void 
 		{

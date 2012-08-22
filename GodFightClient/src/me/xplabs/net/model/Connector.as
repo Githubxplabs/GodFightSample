@@ -117,6 +117,11 @@ package me.xplabs.net.model
 		 */
 		public function send(message:IMessageInfo):void 
 		{
+			if (!_socket) 
+			{
+				trace("socket没有连通！！");
+				return;
+			}
 			if (!_socket.connected) {
 				closeHandler(null);
 				return;
