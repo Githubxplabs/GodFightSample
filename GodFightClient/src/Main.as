@@ -28,7 +28,7 @@ package {
 			// entry point
 			addChild(new Stats());
 			// addChild(new ARE2DStats());
-
+			
 			_starling = new Starling(StarlingMain, stage);
 			_starling.antiAliasing = 1;
 			_starling.start();

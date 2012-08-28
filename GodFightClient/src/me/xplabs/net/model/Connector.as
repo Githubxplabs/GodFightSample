@@ -130,6 +130,13 @@ package me.xplabs.net.model
 			_socket.writeUnsignedInt(message.bytes.length + 4);
 			_socket.writeShort(message.type);
 			_socket.writeBytes(message.bytes);
+			
+			var bytesss:ByteArray = new ByteArray();
+			bytesss.writeUnsignedInt(message.bytes.length + 4);
+			bytesss.writeShort(message.type);
+			bytesss.writeBytes(message.bytes);
+			trace(bytesss.length);
+			
 			_socket.flush();
 		}
 		
@@ -229,6 +236,7 @@ package me.xplabs.net.model
 		 */
 		private function socketDataHanlder(e:ProgressEvent):void 
 		{
+			_recvBytes.clear();
 			_socket.readBytes(_recvBytes, _recvBytes.length);
 			if (_recvBytes.bytesAvailable < 2) return;
 			//_pos = _recvBytes.readShort();

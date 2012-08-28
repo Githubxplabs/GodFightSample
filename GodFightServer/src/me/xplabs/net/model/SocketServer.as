@@ -75,12 +75,13 @@ package me.xplabs.net.model {
 		private function receiveHandler(e : ProgressEvent) : void {
 			
 			var socket : Socket = Socket(e.currentTarget);
+			_recvBytes.clear();
 			try 
 			{
-			var cliendId:String = getClientIdBySocket(socket);
+				var cliendId:String = getClientIdBySocket(socket);
 				socket.readBytes(_recvBytes, _recvBytes.length);
 				if (_recvBytes.bytesAvailable < 2) return;
-				var position : int = _recvBytes.readUnsignedInt();
+				var position : Number = _recvBytes.readUnsignedInt();
 				_recvBytes.position -= 2;
 				while ( position <= _recvBytes.bytesAvailable) {
 					_bytesNode.clear();

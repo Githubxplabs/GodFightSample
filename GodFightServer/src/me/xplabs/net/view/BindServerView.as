@@ -31,7 +31,8 @@ package me.xplabs.net.view {
 		}
 
 		public function setupUI() : void {
-			localIP = createTextField(10, 10, "Local IP", "127.0.0.1");
+			//localIP = createTextField(10, 10, "Local IP", "127.0.0.1");
+			localIP = createTextField(10, 10, "Local IP", "10.188.60.32");
 			localPort = createTextField(10, 35, "Local port", "80");
 			createTextButton(170, 60, "Bind", bind);
 			message = createTextField(10, 85, "Message", "Lucy can't drink milk.");
