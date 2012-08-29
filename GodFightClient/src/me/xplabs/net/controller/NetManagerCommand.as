@@ -6,6 +6,8 @@ package me.xplabs.net.controller
 	import me.xplabs.net.events.NetNotificationEvent;
 	import me.xplabs.player.controller.SCPlayerInfoCommand;
 	import me.xplabs.room.controller.SCEnterRoomCommand;
+	import me.xplabs.room.controller.SCRoomMemberExitCommand;
+	import me.xplabs.room.controller.SCRoomMemberJoinCommand;
 	import me.xplabs.servers.lander.SCLoginResult;
 	import me.xplabs.servers.MessageType;
 	import me.xplabs.utils.msgFormat;
@@ -31,6 +33,8 @@ package me.xplabs.net.controller
 			commandMap.mapEvent(msgFormat(MessageType.SC_LOGIN_RESULT), SCLoginResultCommand, NetNotificationEvent);
 			commandMap.mapEvent(msgFormat(MessageType.SC_PLAYER_INFO), SCPlayerInfoCommand, NetNotificationEvent);
 			commandMap.mapEvent(msgFormat(MessageType.SC_ENTER_ROOM), SCEnterRoomCommand, NetNotificationEvent);
+			commandMap.mapEvent(msgFormat(MessageType.SC_ROOM_MEMBER_JOIN), SCRoomMemberJoinCommand, NetNotificationEvent);
+			commandMap.mapEvent(msgFormat(MessageType.SC_ROOM_MEMBER_EXIT), SCRoomMemberExitCommand, NetNotificationEvent);
 			
 			messageRecognizer.listener();
 		}
