@@ -11,6 +11,7 @@ package me.xplabs.room.model.vo
 		public var memberName:String;
 		public var camp:int;
 		public var houseOwner:Boolean;
+		public var isPrepare:Boolean;
 		public function RoomMember() 
 		{
 			

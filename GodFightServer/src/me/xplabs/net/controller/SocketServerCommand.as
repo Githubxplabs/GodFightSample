@@ -1,4 +1,5 @@
 package me.xplabs.net.controller {
+	import me.xplabs.battle.controller.CSEnterBattleCommand;
 	import me.xplabs.interfaces.net.IMessageRecognizer;
 	import me.xplabs.interfaces.player.IPlayerManager;
 	import me.xplabs.interfaces.room.IRoomManager;
@@ -35,6 +36,7 @@ package me.xplabs.net.controller {
 			commandMap.mapEvent(NetEvent.NET_CLIENT_CLOSE , ClientClosedCommand, NetEvent);
 			
 			commandMap.mapEvent(msgFormat(MessageType.CS_LOGIN), CSLoginCommand, NetNotificationEvent);
+			commandMap.mapEvent(msgFormat(MessageType.CS_ENTER_BATTLE), CSEnterBattleCommand, NetNotificationEvent);
 			messageRecognize.listener();
 		}
 	}

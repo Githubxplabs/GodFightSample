@@ -57,6 +57,7 @@ package me.xplabs.utils
 		   _msgDescribe[MessageType.SC_ROOM_MEMBER_EXIT] = "收到成员有退出房间的消息--SC_ROOM_MEMBER_EXIT=" + MessageType.SC_ROOM_MEMBER_EXIT;
 		   _msgDescribe[MessageType.CS_ENTER_BATTLE] = "发送进入战斗的请求--CS_ENTER_BATTLE=" + MessageType.CS_ENTER_BATTLE;
 		   _msgDescribe[MessageType.SC_ADVANCE_HOUSE_OWNER] = "收到提升房主的消息--SC_ADVANCE_HOUSE_OWNER=" + MessageType.SC_ADVANCE_HOUSE_OWNER;
+		   _msgDescribe[MessageType.SC_ENTER_BATTLE] = "收到进入战斗的消息--SC_ENTER_BATTLE=" + MessageType.SC_ENTER_BATTLE;
 		   return _msgDescribe[msgType];
 	   }
 	}

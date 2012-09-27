@@ -7,6 +7,7 @@ package me.xplabs.net.model
 	import me.xplabs.interfaces.servers.IBaseMessage;
 	import me.xplabs.net.events.NetEvent;
 	import me.xplabs.net.events.NetNotificationEvent;
+	import me.xplabs.servers.battle.SCEnterBattle;
 	import me.xplabs.servers.lander.CSLogin;
 	import me.xplabs.servers.lander.SCLoginResult;
 	import me.xplabs.servers.MessageType;
@@ -80,6 +81,7 @@ package me.xplabs.net.model
 			_msgs[MessageType.SC_ROOM_MEMBER_EXIT] = new SCRoomMemberExit();
 			_msgs[MessageType.SC_PLAYER_INFO] = new SCPlayerInfo();
 			_msgs[MessageType.SC_ADVANCE_HOUSE_OWNER] = new SCAdvanceHouseOwner();
+			_msgs[MessageType.SC_ENTER_BATTLE] = new SCEnterBattle();
 			
 		}
 		/**

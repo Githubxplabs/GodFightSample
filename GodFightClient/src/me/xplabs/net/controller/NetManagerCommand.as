@@ -1,5 +1,6 @@
 package me.xplabs.net.controller 
 {
+	import me.xplabs.battle.controller.SCEnterBattleCommand;
 	import me.xplabs.interfaces.net.IConnector;
 	import me.xplabs.interfaces.net.IMessageRecognizer;
 	import me.xplabs.login.controller.SCLoginResultCommand;
@@ -25,7 +26,6 @@ package me.xplabs.net.controller
 		public function NetManagerCommand() 
 		{
 			super();
-			
 		}
 		override public function execute():void 
 		{
@@ -35,6 +35,7 @@ package me.xplabs.net.controller
 			commandMap.mapEvent(msgFormat(MessageType.SC_ENTER_ROOM), SCEnterRoomCommand, NetNotificationEvent);
 			commandMap.mapEvent(msgFormat(MessageType.SC_ROOM_MEMBER_JOIN), SCRoomMemberJoinCommand, NetNotificationEvent);
 			commandMap.mapEvent(msgFormat(MessageType.SC_ROOM_MEMBER_EXIT), SCRoomMemberExitCommand, NetNotificationEvent);
+			commandMap.mapEvent(msgFormat(MessageType.SC_ENTER_BATTLE), SCEnterBattleCommand, NetNotificationEvent);
 			
 			messageRecognizer.listener();
 		}

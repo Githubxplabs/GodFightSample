@@ -100,6 +100,25 @@ package me.xplabs.room.model
 			
 		}
 		
+		
+		public function roomMember(memberId:int):RoomMember 
+		{
+			var len:int = _members.length;
+			for (var i:int = 0; i < len; i++) 
+			{
+				if (_members[i].memberId == memberId)
+				{
+					return _members[i];
+				}
+			}
+			return null;
+		}
+		
+		public function get isAllPrepare():Boolean 
+		{
+			return true;
+		}
+		
 	}
 
 }
