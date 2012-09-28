@@ -6,6 +6,7 @@ package me.xplabs.resource
 	import flash.utils.getDefinitionByName;
 	import flash.utils.getQualifiedClassName;
 	import me.xplabs.interfaces.resource.ILibrary;
+	import me.xplabs.interfaces.resource.RES;
 	
 	/**
 	 * ...
@@ -18,6 +19,7 @@ package me.xplabs.resource
 		public function Library() 
 		{
 			bmdLib = new Dictionary();
+			new RES();
 		}
 		
 		/* INTERFACE me.xplabs.interfaces.resource.ILibrary */
@@ -31,19 +33,21 @@ package me.xplabs.resource
 			return null;
 		}
 		
-		public function getBitmapDataByClass(pkey:*, cache:Boolean = true):BitmapData
+		public function getBitmapDataByName(pkey:*, cache:Boolean = true):BitmapData
 		{
+			
+			
 			if (cache)
 			{
 				var bmd:BitmapData = bmdLib[pkey];
 				if (!bmd) 
 				{
-					bmd = new (getDefinitionByName(getQualifiedClassName(pkey)) as Class)();
+					bmd = new (getDefinitionByName(pkey) as Class)();
 					bmdLib[pkey] = bmd;
 				}
 				return bmd;
 			}
-			return BitmapData(new (getDefinitionByName(getQualifiedClassName(pkey)) as Class)());
+			return BitmapData(new (getDefinitionByName(pkey) as Class)());
 		}
 		
 	}

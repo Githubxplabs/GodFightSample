@@ -39,10 +39,10 @@ package me.xplabs.login.view
 		
 		public function init():void
 		{
-			image = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByClass( UILoginGround, false)));
+			image = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByName( "UILoginGround", false)));
 			addChild(image);
 			
-			_loginFrame = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByClass(UILoginFrame, false)));
+			_loginFrame = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByName("UILoginFrame", false)));
 			_loginFrame.x = 50;
 			_loginFrame.y = 400;
 			addChild(_loginFrame);
@@ -64,7 +64,7 @@ package me.xplabs.login.view
 			_passWordInput.displayAsPassword = true;
 			Starling.current.nativeStage.addChild(_passWordInput);
 			
-			_enterGameBtn = new UIButton(Texture.fromBitmapData(Library.library.getBitmapDataByClass(UIEnterGame_UP, false)), "", Texture.fromBitmapData(Library.library.getBitmapDataByClass( UIEnterGame_DOWN, false)), Texture.fromBitmapData(Library.library.getBitmapDataByClass( UIEnterGame_OVER, false)));
+			_enterGameBtn = new UIButton(Texture.fromBitmapData(Library.library.getBitmapDataByName("UIEnterGame_UP", false)), "", Texture.fromBitmapData(Library.library.getBitmapDataByName( "UIEnterGame_DOWN", false)), Texture.fromBitmapData(Library.library.getBitmapDataByName( "UIEnterGame_OVER", false)));
 			//_enterGameBtn = new Button(Texture.fromBitmapData(new UIEnterGame_UP()), "", Texture.fromBitmapData(new UIEnterGame_DOWN()));
 			_enterGameBtn.x = 390;
 			_enterGameBtn.y = 470;

@@ -10,7 +10,7 @@ package me.xplabs.interfaces.resource
 	public interface ILibrary 
 	{
 		function getBitmap(pkey:String):Bitmap;
-		function getBitmapDataByClass(pkey:*, cache:Boolean = true):BitmapData;
+		function getBitmapDataByName(pkey:*, cache:Boolean = true):BitmapData;
 	}
 	
 }
