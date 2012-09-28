@@ -1,6 +1,7 @@
 package me.xplabs.room.view 
 {
 	import me.xplabs.common.ui.UIButton;
+	import me.xplabs.resource.Library;
 	import me.xplabs.room.events.RoomEvent;
 	import me.xplabs.room.model.vo.RoomMember;
 	import starling.display.Image;
@@ -33,20 +34,20 @@ package me.xplabs.room.view
 		 */
 		public function init():void
 		{
-			_backGround = new Image(Texture.fromBitmapData(new RoomBackground()));
+			_backGround = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByClass(RoomBackground, false)));
 			addChild(_backGround);
 			
-			_huangDiSymbol = new Image(Texture.fromBitmapData(new RoomHuangDi()));
+			_huangDiSymbol = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByClass(RoomHuangDi, false)));
 			_huangDiSymbol.x = 30;
 			_huangDiSymbol.y = 135;
 			addChild(_huangDiSymbol);
 			
-			_chiYouSymbol = new Image(Texture.fromBitmapData(new RoomChiYou()));
+			_chiYouSymbol = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByClass(RoomChiYou, false)));
 			_chiYouSymbol.x = 30;
 			_chiYouSymbol.y = 425;
 			addChild(_chiYouSymbol);
 			
-			_enterBattleBtn = new UIButton(Texture.fromBitmapData(new UIEnterBattleButton_UP()), "", Texture.fromBitmapData(new UIEnterBattleButton_DOWN()), Texture.fromBitmapData(new UIEnterBattleButton_OVER()));
+			_enterBattleBtn = new UIButton(Texture.fromBitmapData(Library.library.getBitmapDataByClass(UIEnterBattleButton_UP, false)), "", Texture.fromBitmapData(Library.library.getBitmapDataByClass(UIEnterBattleButton_DOWN, false)), Texture.fromBitmapData(Library.library.getBitmapDataByClass(UIEnterBattleButton_OVER, false)));
 			addChild(_enterBattleBtn);
 			_enterBattleBtn.addEventListener(Event.TRIGGERED, enterBattleHandler);
 			

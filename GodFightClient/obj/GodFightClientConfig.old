@@ -26,6 +26,7 @@
     <library-path append="true">
       <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\lib\gameUI.swc</path-element>
       <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\lib\roomUI.swc</path-element>
+      <path-element>J:\Github\godfight-repository\GodFightSample\GodFightClient\lib\map.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

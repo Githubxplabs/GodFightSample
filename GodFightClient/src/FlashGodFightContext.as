@@ -2,10 +2,12 @@ package {
 	import me.xplabs.interfaces.mouse.IMouse;
 	import me.xplabs.interfaces.net.IConnector;
 	import me.xplabs.interfaces.net.IMessageRecognizer;
+	import me.xplabs.interfaces.resource.ILibrary;
 	import me.xplabs.mouse.MouseManager;
 	import me.xplabs.net.controller.NetManagerCommand;
 	import me.xplabs.net.model.Connector;
 	import me.xplabs.net.model.MessageRecognizer;
+	import me.xplabs.resource.Library;
 	import me.xplabs.StartUpCommand;
 	import me.xplabs.utils.MessageHandle;
 	import org.robotlegs.base.ContextEvent;
@@ -28,6 +30,7 @@ package {
 
 			
 			injector.mapValue(IMouse, new MouseManager());
+			//injector.mapValue(ILibrary, new Library());
 			//injector.mapValue(IConnector, new Connector());
 			
 			var connector:Connector = new Connector();

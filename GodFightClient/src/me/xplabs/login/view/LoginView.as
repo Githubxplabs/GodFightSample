@@ -1,9 +1,16 @@
 package me.xplabs.login.view 
 {
+	import flash.display.BitmapData;
+	import flash.utils.describeType;
+	import flash.utils.getDefinitionByName;
+	import flash.utils.getQualifiedClassName;
+	import flash.utils.getQualifiedSuperclassName;
 	import me.xplabs.common.ui.UIButton;
 	import me.xplabs.common.ui.UITextInput;
+	import me.xplabs.interfaces.resource.ILibrary;
 	import me.xplabs.login.events.LoginEvent;
 	import me.xplabs.login.model.vo.AccountVO;
+	import me.xplabs.resource.Library;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
@@ -32,10 +39,10 @@ package me.xplabs.login.view
 		
 		public function init():void
 		{
-			image = new Image(Texture.fromBitmapData(new UILoginGround()));
+			image = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByClass( UILoginGround, false)));
 			addChild(image);
 			
-			_loginFrame = new Image(Texture.fromBitmapData(new UILoginFrame()));
+			_loginFrame = new Image(Texture.fromBitmapData(Library.library.getBitmapDataByClass(UILoginFrame, false)));
 			_loginFrame.x = 50;
 			_loginFrame.y = 400;
 			addChild(_loginFrame);
@@ -57,7 +64,7 @@ package me.xplabs.login.view
 			_passWordInput.displayAsPassword = true;
 			Starling.current.nativeStage.addChild(_passWordInput);
 			
-			_enterGameBtn = new UIButton(Texture.fromBitmapData(new UIEnterGame_UP()), "", Texture.fromBitmapData(new UIEnterGame_DOWN()), Texture.fromBitmapData(new UIEnterGame_OVER()));
+			_enterGameBtn = new UIButton(Texture.fromBitmapData(Library.library.getBitmapDataByClass(UIEnterGame_UP, false)), "", Texture.fromBitmapData(Library.library.getBitmapDataByClass( UIEnterGame_DOWN, false)), Texture.fromBitmapData(Library.library.getBitmapDataByClass( UIEnterGame_OVER, false)));
 			//_enterGameBtn = new Button(Texture.fromBitmapData(new UIEnterGame_UP()), "", Texture.fromBitmapData(new UIEnterGame_DOWN()));
 			_enterGameBtn.x = 390;
 			_enterGameBtn.y = 470;
