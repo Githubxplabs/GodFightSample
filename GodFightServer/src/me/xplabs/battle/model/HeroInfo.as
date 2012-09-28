@@ -23,10 +23,12 @@ package me.xplabs.battle.model
 		public function clone():HeroInfo
 		{
 			var heroInfo:HeroInfo = new HeroInfo();
-			for (var name:String in this)
-			{
-				heroInfo[name] = this[name];
-			}
+			heroInfo.heroId = heroId;
+			heroInfo.heroName = heroName;
+			heroInfo.heroCamp = heroCamp;
+			heroInfo.x = x;
+			heroInfo.y = y;
+			heroInfo.resId = resId;
 			return heroInfo;
 		}
 	}

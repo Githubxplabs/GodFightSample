@@ -1,8 +1,13 @@
 package me.xplabs.room.view 
 {
+	import me.xplabs.common.ui.UIButton;
+	import me.xplabs.room.events.RoomEvent;
 	import me.xplabs.room.model.vo.RoomMember;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Event;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import starling.textures.Texture;
 	
 	/**
@@ -15,6 +20,7 @@ package me.xplabs.room.view
 		private var _backGround:Image;
 		private var _huangDiSymbol:Image;
 		private var _chiYouSymbol:Image;
+		private var _enterBattleBtn:UIButton;
 		
 		private var _members:Vector.<RoomFigureFrame>;
 		public function RoomView() 
@@ -40,6 +46,10 @@ package me.xplabs.room.view
 			_chiYouSymbol.y = 425;
 			addChild(_chiYouSymbol);
 			
+			_enterBattleBtn = new UIButton(Texture.fromBitmapData(new UIEnterBattleButton_UP()), "", Texture.fromBitmapData(new UIEnterBattleButton_DOWN()), Texture.fromBitmapData(new UIEnterBattleButton_OVER()));
+			addChild(_enterBattleBtn);
+			_enterBattleBtn.addEventListener(Event.TRIGGERED, enterBattleHandler);
+			
 			/*var tempFrame:RoomFigureFrame = new RoomFigureFrame();
 			tempFrame.show(Texture.fromBitmapData(new RoomRoleFrame()));
 			addChild(tempFrame);
@@ -47,6 +57,11 @@ package me.xplabs.room.view
 			tempFrame.y = 110;*/
 			_members = new Vector.<RoomFigureFrame>();
 			
+		}
+		
+		private function enterBattleHandler(e:Event):void 
+		{
+			dispatchEvent(new RoomEvent(RoomEvent.ENTER_BATTLE));
 		}
 		/**
 		 * 更新房间所有成员
@@ -83,6 +98,20 @@ package me.xplabs.room.view
 				}
 			}
 			_members.length = 0;
+		}
+		
+		override public function dispose():void 
+		{
+			if (_backGround.parent) _backGround.parent.removeChild(_backGround);
+			if (_huangDiSymbol.parent) _huangDiSymbol.parent.removeChild(_huangDiSymbol);
+			if (_chiYouSymbol.parent) _chiYouSymbol.parent.removeChild(_chiYouSymbol);
+			if (_enterBattleBtn.parent) _enterBattleBtn.parent.removeChild(_enterBattleBtn);
+			_backGround = null;
+			_huangDiSymbol = null;
+			_chiYouSymbol = null;
+			_enterBattleBtn = null;
+			clearMembers();
+			super.dispose();
 		}
 		
 	}

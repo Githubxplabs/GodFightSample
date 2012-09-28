@@ -41,6 +41,7 @@ package me.xplabs.login.view
 		override public function onRemove():void 
 		{
 			removeViewListener(LoginEvent.CLICK_ENTER_GAME, clickEnterGameHandler, LoginEvent);
+			removeContextListener(LoginEvent.REMOVE_LOGIN_SCENE, removeLoginHandler, LoginEvent);
 			loginView.dispose();
 		}
 	}

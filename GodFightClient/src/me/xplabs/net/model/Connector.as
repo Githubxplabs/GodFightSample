@@ -131,11 +131,11 @@ package me.xplabs.net.model
 			_socket.writeShort(message.type);
 			_socket.writeBytes(message.bytes);
 			
-			var bytesss:ByteArray = new ByteArray();
+			/*var bytesss:ByteArray = new ByteArray();
 			bytesss.writeUnsignedInt(message.bytes.length + 4);
 			bytesss.writeShort(message.type);
 			bytesss.writeBytes(message.bytes);
-			trace(bytesss.length);
+			trace("发送数据的长度ByteArray.length==" + bytesss.length);*/
 			
 			_socket.flush();
 		}

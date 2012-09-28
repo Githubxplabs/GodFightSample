@@ -1,5 +1,6 @@
 package me.xplabs.battle.controller 
 {
+	import me.xplabs.room.events.RoomEvent;
 	import me.xplabs.servers.battle.SCEnterBattle;
 	import me.xplabs.servers.MsgCommand;
 	
@@ -17,6 +18,8 @@ package me.xplabs.battle.controller
 		override public function execute():void 
 		{
 			super.execute();
+			dispatch(new RoomEvent(RoomEvent.REMOVE_ROOM_SCENE));
+			
 			var sCEnterBattle:SCEnterBattle = baseMessage as SCEnterBattle;
 		}
 		
