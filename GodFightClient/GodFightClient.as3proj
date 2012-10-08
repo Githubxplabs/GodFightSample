@@ -40,7 +40,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="" />
+    <option additional="-keep-as3-metadata+=Inject -keep-as3-metadata+=PostConstruct" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>

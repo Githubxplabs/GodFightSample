@@ -29,7 +29,6 @@ package me.xplabs.net.controller
 		}
 		override public function execute():void 
 		{
-			
 			commandMap.mapEvent(msgFormat(MessageType.SC_LOGIN_RESULT), SCLoginResultCommand, NetNotificationEvent);
 			commandMap.mapEvent(msgFormat(MessageType.SC_PLAYER_INFO), SCPlayerInfoCommand, NetNotificationEvent);
 			commandMap.mapEvent(msgFormat(MessageType.SC_ENTER_ROOM), SCEnterRoomCommand, NetNotificationEvent);
@@ -39,6 +38,7 @@ package me.xplabs.net.controller
 			
 			messageRecognizer.listener();
 		}
+		
 	}
 
 }

@@ -1,5 +1,7 @@
 package me.xplabs.battle.controller 
 {
+	import me.xplabs.battle.view.MapView;
+	import me.xplabs.battle.view.MapViewMediator;
 	import me.xplabs.room.events.RoomEvent;
 	import me.xplabs.servers.battle.SCEnterBattle;
 	import me.xplabs.servers.MsgCommand;
@@ -21,6 +23,9 @@ package me.xplabs.battle.controller
 			dispatch(new RoomEvent(RoomEvent.REMOVE_ROOM_SCENE));
 			
 			var sCEnterBattle:SCEnterBattle = baseMessage as SCEnterBattle;
+			
+			mediatorMap.mapView(MapView, MapViewMediator);
+			contextView.addChild(new MapView());
 		}
 		
 	}
