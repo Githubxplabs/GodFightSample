@@ -17,7 +17,7 @@ package me.xplabs.constant
 		/**
 		 * 地图缓冲区横向格子数
 		 */
-		public static const bufferRow:int = 5;
+		public static const bufferRow:int = 6;
 		/**
 		 * 地图缓冲区纵向格子数
 		 */

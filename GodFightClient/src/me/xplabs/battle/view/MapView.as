@@ -1,15 +1,20 @@
 package me.xplabs.battle.view 
 {
+	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.geom.Point;
 	import flash.utils.Dictionary;
 	import flash.utils.getTimer;
+	import me.xplabs.battle.events.KeyBoardValue;
 	import me.xplabs.constant.MapConst;
 	import me.xplabs.resource.Library;
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.EnterFrameEvent;
+	import starling.events.KeyboardEvent;
 	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
 	
 	/**
 	 * 地图视图
@@ -54,6 +59,18 @@ package me.xplabs.battle.view
 		 * 是否是第一次初始化地图
 		 */
 		private var _firstInitMap:Boolean;
+		/**
+		 * 上一次地图的坐标像素点
+		 */
+		//public var prevPixelPt:Point;
+		private var _keyboards:Array;
+		private var _keyboardStr:String;
+		private var _speed:int = 10;
+		
+		[Embed(source = "../../../../assets/effect/~mage_attacked[1].png")]
+		private static const SpriteSheet:Class;  
+		[Embed(source="../../../../assets/effect/~mage_attacked[1].xml", mimeType="application/octet-stream")]
+		public static const SpriteSheetXML:Class; 
 		public function MapView() 
 		{
 		}
@@ -62,7 +79,11 @@ package me.xplabs.battle.view
 		{
 			_prevTilePt = new Point();
 			_curTilePt = new Point();
+			//prevPixelPt = new Point();
+			//curPixelPt = new Point();
  			
+			_keyboards = [0, 0, 0, 0];
+			
 			_curDisplayKeys = new Vector.<String>();
 			_prevDisplayKeys = new Vector.<String>();
 			
@@ -72,6 +93,58 @@ package me.xplabs.battle.view
 			
 			mapToTarget(0, 0);
 			addEventListener(EnterFrameEvent.ENTER_FRAME, onEneterframe);
+			
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
+			stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
+			
+			var ars:TextureAtlas = new TextureAtlas(Texture.fromBitmap(new SpriteSheet()), XML(new SpriteSheetXML()));;
+			var mc:MovieClip = new MovieClip(ars.getTextures("_run_"));
+			mc.play();
+			addChild(mc);
+		}
+		
+		
+		private function keyUpHandler(e:KeyboardEvent):void 
+		{
+			switch(e.keyCode)
+			{
+				case KeyBoardValue.W:
+					_keyboards[0] = 0;
+					break;
+				case KeyBoardValue.S:
+					_keyboards[1] = 0;
+					break;
+				case KeyBoardValue.A:
+					_keyboards[2] = 0;
+					break;
+				case KeyBoardValue.D:
+					_keyboards[3] = 0;
+					break;
+			}
+			_keyboardStr = _keyboards.join("");
+			trace(_keyboardStr);
+		}
+		
+		private function keyDownHandler(e:KeyboardEvent):void 
+		{
+			trace("鼠标按下" + e.keyCode);
+			switch(e.keyCode)
+			{
+				case KeyBoardValue.W:
+					_keyboards[0] = 1;
+					break;
+				case KeyBoardValue.S:
+					_keyboards[1] = 1;
+					break;
+				case KeyBoardValue.A:
+					_keyboards[2] = 1;
+					break;
+				case KeyBoardValue.D:
+					_keyboards[3] = 1;
+					break;
+			}
+			_keyboardStr = _keyboards.join("");
+			trace(_keyboardStr);
 		}
 		
 		/**
@@ -87,13 +160,15 @@ package me.xplabs.battle.view
 		}
 		/**
 		 * 地图移动
-		 * @param	mx x方向移动的坐标
-		 * @param	my y方向移动的坐标
+		 * @param	mx x方向移动的速度
+		 * @param	my y方向移动的速度
 		 */
-		public function moveMap(mx:int, my:int):void
+		public function moveMap(sx:Number, sy:Number):void
 		{
-			this.x += mx;
-			this.y += my;
+			//prevPixelPt.x = this.x;
+			//prevPixelPt.y = this.y;
+			this.x += sx;
+			this.y += sy;
 			_canUpdateBlock = true;
 		}
 		/**
@@ -151,7 +226,7 @@ package me.xplabs.battle.view
 				
 				_prevTilePt.x = _curTilePt.x;
 				_prevTilePt.y = _curTilePt.y;
-				trace(this.x, this.y, _curTilePt, loadTileX, loadTileY);
+				//trace(this.x, this.y, _curTilePt, loadTileX, loadTileY);
 				
 				removeOutOfRange(loadTileX,loadTileY);
 				
@@ -243,6 +318,35 @@ package me.xplabs.battle.view
 		private function onEneterframe(e:EnterFrameEvent):void 
 		{
 			//moveMap( -1, -1);
+			switch(_keyboardStr)
+			{
+				case KeyBoardValue.NONE:
+					break;
+				case KeyBoardValue.UP:
+					moveMap(0, _speed);
+					break;
+				case KeyBoardValue.DOWN:
+					moveMap(0, -_speed);
+					break;
+				case KeyBoardValue.LEFT:
+					moveMap(_speed, 0);
+					break;
+				case KeyBoardValue.RIGHT:
+					moveMap(-_speed, 0);
+					break;
+				case KeyBoardValue.LEFT_UP:
+					moveMap(_speed, _speed);
+					break;
+				case KeyBoardValue.RIGHT_UP:
+					moveMap(-_speed, _speed);
+					break;
+				case KeyBoardValue.LEFT_DOWN:
+					moveMap(_speed, -_speed);
+					break;
+				case KeyBoardValue.RIGHT_DOWN:
+					moveMap(-_speed, -_speed);
+					break;
+			}
 			outAreaHandler();
 			updateBlock();
 		}

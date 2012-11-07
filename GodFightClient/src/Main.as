@@ -23,7 +23,7 @@ package {
 			
 			//stage.align = StageAlign.LEFT;
 			stage.align = StageAlign.TOP_LEFT;
-			stage.scaleMode = StageScaleMode.NO_SCALE
+			stage.scaleMode = StageScaleMode.NO_SCALE;
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			addChild(new Stats());
