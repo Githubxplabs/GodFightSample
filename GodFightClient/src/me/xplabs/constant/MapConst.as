@@ -9,11 +9,11 @@ package me.xplabs.constant
 		/**
 		 * 地图tile的宽度
 		 */
-		public static const tileW:int = 310; 
+		public static const tileW:int = 256; 
 		/**
 		 * 地图tile的高度
 		 */
-		public static const tileH:int = 310;
+		public static const tileH:int = 256;
 		/**
 		 * 地图缓冲区横向格子数
 		 */
@@ -33,11 +33,11 @@ package me.xplabs.constant
 		/**
 		 * 地图宽度
 		 */
-		public static const mapW:int = 6200;
+		public static const mapW:int = 6144;
 		/**
 		 * 地图高度
 		 */
-		public static const mapH:int = 3720;
+		public static const mapH:int = 3584;
 		/**
 		 * 舞台宽度
 		 */

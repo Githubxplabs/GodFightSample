@@ -17,6 +17,7 @@
 <stringAttribute key="POST_COMPILE_ANT" value=""/>
 <stringAttribute key="PRE_COMPILE_ANT" value=""/>
 <stringAttribute key="PROJECT_NAME" value="GodFightClient"/>
+<booleanAttribute key="START_DEBUGGER" value="true"/>
 <booleanAttribute key="START_SWF_ENABLED" value="true"/>
 <stringAttribute key="START_SWF_LOCATION" value="bin/Main.swf"/>
 <stringAttribute key="START_SWF_WITH" value="Adobe Flash Player"/>

@@ -29,6 +29,10 @@ package me.xplabs.interfaces.resource
 			Map0_17
 			Map0_18
 			Map0_19
+			Map0_20
+			Map0_21
+			Map0_22
+			Map0_23
 			Map1_0
 			Map1_1
 			Map1_2
@@ -49,6 +53,10 @@ package me.xplabs.interfaces.resource
 			Map1_17
 			Map1_18
 			Map1_19
+			Map1_20
+			Map1_21
+			Map1_22
+			Map1_23
 			Map2_0
 			Map2_1
 			Map2_2
@@ -69,6 +77,10 @@ package me.xplabs.interfaces.resource
 			Map2_17
 			Map2_18
 			Map2_19
+			Map2_20
+			Map2_21
+			Map2_22
+			Map2_23
 			Map3_0
 			Map3_1
 			Map3_2
@@ -89,6 +101,10 @@ package me.xplabs.interfaces.resource
 			Map3_17
 			Map3_18
 			Map3_19
+			Map3_20
+			Map3_21
+			Map3_22
+			Map3_23
 			Map4_0
 			Map4_1
 			Map4_2
@@ -109,6 +125,10 @@ package me.xplabs.interfaces.resource
 			Map4_17
 			Map4_18
 			Map4_19
+			Map4_20
+			Map4_21
+			Map4_22
+			Map4_23
 			Map5_0
 			Map5_1
 			Map5_2
@@ -129,6 +149,10 @@ package me.xplabs.interfaces.resource
 			Map5_17
 			Map5_18
 			Map5_19
+			Map5_20
+			Map5_21
+			Map5_22
+			Map5_23
 			Map6_0
 			Map6_1
 			Map6_2
@@ -149,6 +173,10 @@ package me.xplabs.interfaces.resource
 			Map6_17
 			Map6_18
 			Map6_19
+			Map6_20
+			Map6_21
+			Map6_22
+			Map6_23
 			Map7_0
 			Map7_1
 			Map7_2
@@ -169,6 +197,34 @@ package me.xplabs.interfaces.resource
 			Map7_17
 			Map7_18
 			Map7_19
+			Map7_20
+			Map7_21
+			Map7_22
+			Map7_23
+			Map7_0
+			Map7_1
+			Map7_2
+			Map7_3
+			Map7_4
+			Map7_5
+			Map7_6
+			Map7_7
+			Map7_8
+			Map7_9
+			Map7_10
+			Map7_11
+			Map7_12
+			Map7_13
+			Map7_14
+			Map7_15
+			Map7_16
+			Map7_17
+			Map7_18
+			Map7_19
+			Map7_20
+			Map7_21
+			Map7_22
+			Map7_23
 			Map8_0
 			Map8_1
 			Map8_2
@@ -189,6 +245,10 @@ package me.xplabs.interfaces.resource
 			Map8_17
 			Map8_18
 			Map8_19
+			Map8_20
+			Map8_21
+			Map8_22
+			Map8_23
 			Map9_0
 			Map9_1
 			Map9_2
@@ -209,6 +269,34 @@ package me.xplabs.interfaces.resource
 			Map9_17
 			Map9_18
 			Map9_19
+			Map9_20
+			Map9_21
+			Map9_22
+			Map9_23
+			Map9_0
+			Map9_1
+			Map9_2
+			Map9_3
+			Map9_4
+			Map9_5
+			Map9_6
+			Map9_7
+			Map9_8
+			Map9_9
+			Map9_10
+			Map9_11
+			Map9_12
+			Map9_13
+			Map9_14
+			Map9_15
+			Map9_16
+			Map9_17
+			Map9_18
+			Map9_19
+			Map9_20
+			Map9_21
+			Map9_22
+			Map9_23
 			Map10_0
 			Map10_1
 			Map10_2
@@ -229,6 +317,10 @@ package me.xplabs.interfaces.resource
 			Map10_17
 			Map10_18
 			Map10_19
+			Map10_20
+			Map10_21
+			Map10_22
+			Map10_23
 			Map11_0
 			Map11_1
 			Map11_2
@@ -249,6 +341,59 @@ package me.xplabs.interfaces.resource
 			Map11_17
 			Map11_18
 			Map11_19
+			Map11_20
+			Map11_21
+			Map11_22
+			Map11_23
+			Map12_0
+			Map12_1
+			Map12_2
+			Map12_3
+			Map12_4
+			Map12_5
+			Map12_6
+			Map12_7
+			Map12_8
+			Map12_9
+			Map12_10
+			Map12_11
+			Map12_12
+			Map12_13
+			Map12_14
+			Map12_15
+			Map12_16
+			Map12_17
+			Map12_18
+			Map12_19
+			Map12_20
+			Map12_21
+			Map12_22
+			Map12_23
+			Map13_0
+			Map13_1
+			Map13_2
+			Map13_3
+			Map13_4
+			Map13_5
+			Map13_6
+			Map13_7
+			Map13_8
+			Map13_9
+			Map13_10
+			Map13_11
+			Map13_12
+			Map13_13
+			Map13_14
+			Map13_15
+			Map13_16
+			Map13_17
+			Map13_18
+			Map13_19
+			Map13_20
+			Map13_21
+			Map13_22
+			Map13_23
+			
 			UIEnterGame_DOWN
 			UIEnterGame_OVER
 			UIEnterGame_UP

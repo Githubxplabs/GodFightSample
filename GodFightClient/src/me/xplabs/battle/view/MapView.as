@@ -8,6 +8,7 @@ package me.xplabs.battle.view
 	import me.xplabs.battle.events.KeyBoardValue;
 	import me.xplabs.constant.MapConst;
 	import me.xplabs.resource.Library;
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
@@ -97,10 +98,12 @@ package me.xplabs.battle.view
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
 			stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
 			
-			var ars:TextureAtlas = new TextureAtlas(Texture.fromBitmap(new SpriteSheet()), XML(new SpriteSheetXML()));;
-			var mc:MovieClip = new MovieClip(ars.getTextures("_run_"));
-			mc.play();
-			addChild(mc);
+			//var ars:TextureAtlas = new TextureAtlas(Texture.fromBitmap(new SpriteSheet()), XML(new SpriteSheetXML()));;
+			//var mc:MovieClip = new MovieClip(ars.getTextures("_run_"));
+			//mc.x = 300;
+			//mc.y = 300;
+			//Starling.juggler.add ( mc ); 
+			//addChild(mc);
 		}
 		
 		
@@ -186,8 +189,8 @@ package me.xplabs.battle.view
 				}
 			}
 			_canUpdateBlock = false;
-			_curFrame++;
-			if (_curFrame % 2 == 0)
+			_curFrame++; 
+			if (_curFrame % 1 == 0)
 			{
 				if (_buffers.length != 0)
 				{

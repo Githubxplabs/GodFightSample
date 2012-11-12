@@ -1,8 +1,11 @@
 package {
+	import flash.display.Bitmap;
+	import flash.display.Loader;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import flash.net.URLLoader;
 	import net.hires.debug.Stats;
 	import starling.core.Starling;
 
@@ -32,6 +35,7 @@ package {
 			_starling = new Starling(StarlingMain, stage);
 			_starling.antiAliasing = 1;
 			_starling.start();
+			
 		}
 	}
 }
